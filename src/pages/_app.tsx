@@ -1,5 +1,5 @@
-import { GlobalStyle } from '@/styles/global'
-import { Container, Header } from '@/styles/pages/app'
+import { GlobalStyle } from '../styles/global'
+import { Container, Header } from '../styles/pages/app'
 import type { AppProps } from 'next/app'
 import Image from 'next/image'
 import Logo from '../assets/Logo.svg'
