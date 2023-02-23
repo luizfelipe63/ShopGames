@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    unoptimized: false
+    unoptimized: false,
+    domains: ['files.stripe.com']
   }
 }
 
