@@ -3,7 +3,6 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import { HomeContainer, Products } from "../styles/pages/home";
 import { stripe } from "../lib/stripe";
 
-import Link from 'next/link'
 
 import 'keen-slider/keen-slider.min.css'
 import {useKeenSlider} from 'keen-slider/react'
@@ -45,6 +44,7 @@ export default function Home({products}: HomeProps) {
             href={`/product/${reponse.id}`} 
             key={reponse.id} 
             className="keen-slider__slide"
+            prefetch={false}
           >
             <Image src={reponse.imageUrl} alt='' width={520} height={480}/>
             <footer>
@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async() => {
     }
   })
 
-  console.log(reponse.data)
+
   return{
     props: {
       products
