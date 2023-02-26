@@ -1,36 +1,56 @@
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Stripe from 'stripe'
 import { stripe } from '../../lib/stripe'
 import { ImageProducts, ProductsContainer, ProductsDetails } from '../../styles/pages/products'
 
 
 interface ProductsProps {
-  products:{
+  product:{
     id: string, 
     name: string,
     imageUrl: string,
     price: string, 
-    descripton: string
+    description: string
   }
 }
 
-export default function Product({products}: ProductsProps) {
+export default function Product({product}: ProductsProps) {
+
+  const {isFallback} = useRouter()
+
+  if(isFallback){
+    return(
+      <p>Loading...</p>
+    )
+  }
 
 
   return (
     <ProductsContainer>
       <ImageProducts>
-        <Image src={products.imageUrl} width={520} height={480} alt=''/>
+        <Image src={product.imageUrl} width={520} height={480} alt=''/>
       </ImageProducts>
       <ProductsDetails>
-        <h1>{products.name}</h1>
-        <span>{products.price}</span>
-        <p>{products.descripton}</p>
+        <h1>{product.name}</h1>
+        <span>{product.price}</span>
+        <p>{product.description}</p>
         <button>Comprar agora</button>
       </ProductsDetails>
     </ProductsContainer>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return{
+    paths: [
+      {
+        params : { id: 'prod_NMFWtWMptgD1uf' }
+      }
+    ],
+    fallback: true
+  }
 }
 
 export const getStaticProps: GetStaticProps<any, {id: string}> = async ({params}) => {
