@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 
 import Stripe from "stripe";
+import Head from "next/head";
 
 interface HomeProps {
   products:{
@@ -37,6 +38,11 @@ export default function Home({products}: HomeProps) {
   },[])
 
   return (
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
+
     <HomeContainer ref={sliderRef} className='KeenSlider'>
       {products.map(reponse => {
         return(
@@ -55,6 +61,7 @@ export default function Home({products}: HomeProps) {
         )
       })}
     </HomeContainer>
+    </>
   )
 }
 
