@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { HomeContainer, Products } from "../styles/pages/home";
 import { stripe } from "../lib/stripe";
 
 
 import 'keen-slider/keen-slider.min.css'
 import {useKeenSlider} from 'keen-slider/react'
-import { useEffect, useState } from "react";
 
 
 import Stripe from "stripe";
@@ -22,7 +21,6 @@ interface HomeProps {
 }
 
 export default function Home({products}: HomeProps) {
-  const [list, setList] = useState<number[]>([])
 
   const [sliderRef] = useKeenSlider({
     slides: {
@@ -30,12 +28,6 @@ export default function Home({products}: HomeProps) {
       spacing: 48
     }
   })
-
-  useEffect(() => {
-    setTimeout(() => {
-      setList([1,2,3])
-    }, 2000);
-  },[])
 
   return (
     <>
