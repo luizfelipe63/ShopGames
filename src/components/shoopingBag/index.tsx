@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'phosphor-react'
 import { ProductBag } from '../productBag'
-import { Content, Overlay } from './styles'
+import { CheckoutButton, CloseButton, Content, Overlay, QuantityOfItems, Title, TotalValue } from './styles'
 
 
 export function ShoopingBag(){
@@ -9,22 +9,28 @@ export function ShoopingBag(){
     <Dialog.Portal>
       <Overlay/>
       <Content>
-        <Dialog.Title>
+        <Title>
           Sacola de compras
-        </Dialog.Title>
-        <Dialog.Close>
-          <X/>
-        </Dialog.Close>
-        <ProductBag/>
+        </Title>
+        <CloseButton>
+          <X weight='bold' size={24}/>
+        </CloseButton>
         <div>
-          <span>Quantidades</span>
-          <span>3 itens</span>
+          <ProductBag/>
+          <ProductBag/>
+          <ProductBag/>
         </div>
         <div>
-          <span>Valor total</span>
-          <span>R$ 270,00</span>
+          <QuantityOfItems>
+            <span>Quantidades</span>
+            <span>3 itens</span>
+          </QuantityOfItems>
+          <TotalValue>
+            <span>Valor total</span>
+            <span>R$ 270,00</span>
+          </TotalValue>
+          <CheckoutButton>Finalizar compra</CheckoutButton>
         </div>
-        <button>Finalizar compra</button>
       </Content>
     </Dialog.Portal>
   )
