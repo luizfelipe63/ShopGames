@@ -22,5 +22,20 @@ export const Card = styled('div', {
 
 export const CardDescription = styled('div', {
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  gap: '.5rem',
+
+  span: {
+    color: '$grayScale'
+  },
+
+  button: {
+    display: 'flex',
+    background: 'transparent',
+    color: '$green300',
+    border: 0,
+
+    cursor: 'pointer'
+  }
 })

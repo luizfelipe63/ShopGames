@@ -1,5 +1,5 @@
 import { GlobalStyle } from '../styles/global'
-import { Container, Header } from '../styles/pages/app'
+import { CardButton, Container, Header } from '../styles/pages/app'
 import type { AppProps } from 'next/app'
 import Image from 'next/image'
 import Logo from '../assets/Logo.svg'
@@ -16,9 +16,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <Image src={Logo} alt="" />
         <Dialog.Root>
           <Dialog.Trigger asChild>
-            <button>
+            <CardButton>
+             <span>3</span>
               <Handbag size={24}/>
-            </button>
+            </CardButton>
           </Dialog.Trigger>
           <ShoopingBag />
         </Dialog.Root>

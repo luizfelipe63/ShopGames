@@ -9,8 +9,8 @@ export function ProductBag(){
         <Image src={camiseta} alt="" width={90} height={90}/>
       </Card>
       <CardDescription>
-        <p>Camiseta Beyond the Limits</p>
-        <span>79,90</span>
+        <span>Camiseta Beyond the Limits</span>
+        <strong>79,90</strong>
         <button>Remover</button>
       </CardDescription>
     </CardContainer>

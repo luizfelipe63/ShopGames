@@ -28,7 +28,7 @@ export const Title = styled(Dialog.Title, {
 
 export const Content = styled(Dialog.Content, {
   display: 'flex',
-  justifyContent: 'space-between',
+  // justifyContent: 'space-between',
   flexDirection: 'column',
   padding: '3rem',
   width: 420,
@@ -39,21 +39,34 @@ export const Content = styled(Dialog.Content, {
   bottom: 0
 })
 
+export const ContentProduct = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.5rem',
+  marginBottom: '2rem'
+})
+
 export const QuantityOfItems = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
-  marginBottom: '.5rem'
+  marginBottom: '1rem'
 })
 
 export const TotalValue = styled('div', {
   display: 'flex',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  marginBottom: '3rem'
+})
+
+export const ContentInfos = styled('div', {
+  marginTop: 'auto'
 })
 
 export const CheckoutButton = styled('button', {
   background: '$green500',
   color: '$white',
   fontWeight: 'bold',
+  fontSize: '$normal',
   border: 0,
   borderRadius: 6,
   width: '100%',

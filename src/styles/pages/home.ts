@@ -3,7 +3,6 @@ import { styled } from '..'
 
 export const HomeContainer = styled('main', {
   display: 'flex',
-  // gap: '3rem',
   width: '100%',
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
@@ -52,6 +51,25 @@ export const Products = styled(Link, {
       fontSize: '$xl',
       fontWeight: 'bold',
       color: '$green300'
+    },
+
+    div: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '.25rem'
+    },
+
+    button: {
+      backgroundColor: '$green500',
+      color: '$white',
+      border: 0,
+      borderRadius: 6,
+      padding: '.75rem',
+
+      cursor: 'pointer',
+
+      display: 'flex',
+      alignItems: 'center'
     }
   },
 
