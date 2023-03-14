@@ -31,7 +31,7 @@ export const CardButton = styled('button', {
     position: 'absolute',
     top: '-0.5625rem',
     right: '-0.5625rem',
-    padding: 12,
+    padding: 6,
 
     fontSize: ' 0.875rem',
     fontWeight: 'bold',

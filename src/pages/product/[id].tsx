@@ -41,7 +41,7 @@ export default function Product({product}: ProductsProps) {
     }
     console.log(product.defaultPriceId)
   }
-
+  
   const {isFallback} = useRouter()
 
   if(isFallback){

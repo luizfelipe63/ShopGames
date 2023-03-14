@@ -11,17 +11,30 @@ import {useKeenSlider} from 'keen-slider/react'
 import Stripe from "stripe";
 import Head from "next/head";
 import { Handbag } from "phosphor-react";
+import { useContext } from "react";
+import { ProductContext, ProductType } from "../context/productContext";
 
 interface HomeProps {
   products:{
     id: string, 
     name: string,
     imageUrl: string,
-    price: number
+    price: number,
   }[]
+  
 }
 
+// interface Product {
+//   Product: ProductType[]
+// }
+
 export default function Home({products}: HomeProps) {
+
+  const {creatNewProductBag} = useContext(ProductContext)
+
+  const handleCreatProductBag = (product: ProductType) => {
+    creatNewProductBag({...product})
+  }
 
   const [sliderRef] = useKeenSlider({
     slides: {
@@ -37,21 +50,21 @@ export default function Home({products}: HomeProps) {
       </Head>
 
     <HomeContainer ref={sliderRef} className='KeenSlider'>
-      {products.map(reponse => {
+      {products.map(product => {
         return(
           <Products 
-            href={`/product/${reponse.id}`} 
-            key={reponse.id} 
+            href={`/product/${product.id}`} 
+            key={product.id} 
             className="keen-slider__slide"
             prefetch={false}
           >
-            <Image src={reponse.imageUrl} alt='' width={520} height={480}/>
+            <Image src={product.imageUrl} alt='' width={520} height={480}/>
             <footer>
               <div>
-                <strong>{reponse.name}</strong>
-                <span>{reponse.price}</span>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
               </div>
-              <button>
+              <button onClick={() => handleCreatProductBag(product)}>
                 <Handbag size={32} weight='bold' />
               </button>
             </footer>

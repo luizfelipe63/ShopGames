@@ -1,5 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'phosphor-react'
+import { useContext } from 'react'
+import { ProductContext } from '../../context/productContext'
 import { ProductBag } from '../productBag'
 import { 
   CheckoutButton, 
@@ -14,7 +16,13 @@ import {
 } from './styles'
 
 
+
+
 export function ShoopingBag(){
+
+  const {newProductBag} = useContext(ProductContext)
+  console.log(newProductBag)
+
   return(
     <Dialog.Portal>
       <Overlay/>
@@ -27,9 +35,9 @@ export function ShoopingBag(){
         </Title>
        
         <ContentProduct>
-          <ProductBag/>
-          <ProductBag/>
-          <ProductBag/>
+         {newProductBag.map(item => {
+          return <ProductBag key={item.id} ProductBag={item}/>
+         })}
         </ContentProduct>
         <ContentInfos>
           <QuantityOfItems>
