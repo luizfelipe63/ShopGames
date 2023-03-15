@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ProductType } from "../../context/productContext";
+import { useContext } from "react";
+import { ProductContext, ProductType } from "../../context/productContext";
 import { Card, CardContainer, CardDescription } from "./styles";
 
 interface ProductBagProps{
@@ -7,6 +8,12 @@ interface ProductBagProps{
 }
 
 export function ProductBag({ProductBag}: ProductBagProps){
+
+  const { DeleteProductBag } = useContext(ProductContext)
+
+  function handleDeleteProductBag(){
+    DeleteProductBag(ProductBag.id)
+  }
 
   
   return(
@@ -17,7 +24,7 @@ export function ProductBag({ProductBag}: ProductBagProps){
       <CardDescription>
         <span>{ProductBag.name}</span>
         <strong>{ProductBag.price}</strong>
-        <button>Remover</button>
+        <button onClick={handleDeleteProductBag}>Remover</button>
       </CardDescription>
     </CardContainer>
   )
