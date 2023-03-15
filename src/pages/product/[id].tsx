@@ -3,43 +3,23 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Stripe from 'stripe'
+import { ProductContext, ProductType } from '../../context/productContext'
 import { stripe } from '../../lib/stripe'
 import { ImageProducts, ProductsContainer, ProductsDetails } from '../../styles/pages/products'
 
 
 interface ProductsProps {
-  product:{
-    id: string, 
-    name: string,
-    imageUrl: string,
-    price: string, 
-    description: string,
-    defaultPriceId: string
-  }
+  product: ProductType
 }
 
 export default function Product({product}: ProductsProps) {
 
-  const [isCreatCheckoutSession, setIsCreatCheckoutSession] = useState(false)
+  const { creatNewProductBag } = useContext(ProductContext)
 
-  async function handleBuyProduct(){
-    try{
-      setIsCreatCheckoutSession(true)
-
-      const reponse = await axios.post('/api/checkout', {
-        priceId: product.defaultPriceId
-      })
-
-      const {checkoutUrl} = reponse.data
-
-      window.location.href = checkoutUrl
-    }catch(error){
-      setIsCreatCheckoutSession(false)
-      alert('Falha ao redirecionar ao checkout!')
-    }
-    console.log(product.defaultPriceId)
+  const handleCreatProductBag = () => {
+    creatNewProductBag({...product})
   }
   
   const {isFallback} = useRouter()
@@ -65,7 +45,7 @@ export default function Product({product}: ProductsProps) {
         <h1>{product.name}</h1>
         <span>{product.price}</span>
         <p>{product.description}</p>
-        <button disabled={isCreatCheckoutSession} onClick={handleBuyProduct}>Comprar agora</button>
+        <button onClick={handleCreatProductBag}>Colocar na sacola</button>
       </ProductsDetails>
     </ProductsContainer>
     </>

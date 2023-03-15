@@ -15,18 +15,8 @@ import { useContext } from "react";
 import { ProductContext, ProductType } from "../context/productContext";
 
 interface HomeProps {
-  products:{
-    id: string, 
-    name: string,
-    imageUrl: string,
-    price: number,
-  }[]
-  
+ products: ProductType[]  
 }
-
-// interface Product {
-//   Product: ProductType[]
-// }
 
 export default function Home({products}: HomeProps) {
 

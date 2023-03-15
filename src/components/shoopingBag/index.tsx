@@ -20,8 +20,11 @@ import {
 
 export function ShoopingBag(){
 
-  const {newProductBag} = useContext(ProductContext)
-  console.log(newProductBag)
+  const {newProductBag, BuyProduct, QuantityItems} = useContext(ProductContext)
+
+  async function handleBuyProduct(){
+    BuyProduct()
+  }
 
   return(
     <Dialog.Portal>
@@ -42,13 +45,13 @@ export function ShoopingBag(){
         <ContentInfos>
           <QuantityOfItems>
             <span>Quantidades</span>
-            <span>3 itens</span>
+            <span>{QuantityItems} itens</span>
           </QuantityOfItems>
           <TotalValue>
             <strong>Valor total</strong>
             <strong>R$ 270,00</strong>
           </TotalValue>
-          <CheckoutButton>Finalizar compra</CheckoutButton>
+          <CheckoutButton onClick={handleBuyProduct}>Finalizar compra</CheckoutButton>
         </ContentInfos>
       </Content>
     </Dialog.Portal>
