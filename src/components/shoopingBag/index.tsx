@@ -1,7 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog'
+import axios from 'axios'
 import { X } from 'phosphor-react'
-import { useContext } from 'react'
-import { ProductContext } from '../../context/productContext'
+import { useContext, useState } from 'react'
+import { ProductContext, ProductType } from '../../context/productContext'
 import { ProductBag } from '../productBag'
 import { 
   CheckoutButton, 
@@ -16,14 +17,32 @@ import {
 } from './styles'
 
 
-
-
 export function ShoopingBag(){
 
-  const {newProductBag, BuyProduct, QuantityItems} = useContext(ProductContext)
+  const {newProductBag,QuantityItems,ItemsValue} = useContext(ProductContext)
 
-  async function handleBuyProduct(){
-    BuyProduct()
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+  useState(false)
+
+  const formattedItemsTotal = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+}).format(ItemsValue)
+
+  async function handleCheckout() {
+    try {
+        setIsCreatingCheckoutSession(true)
+
+        const response = await axios.post('/api/checkout', {
+            products: newProductBag
+        })
+        const { checkoutUrl } = response.data
+
+        window.location.href = checkoutUrl
+    } catch(err) {
+        setIsCreatingCheckoutSession(false)
+        alert('Falha ao redirecionar ao checkout')
+    }
   }
 
   return(
@@ -49,9 +68,9 @@ export function ShoopingBag(){
           </QuantityOfItems>
           <TotalValue>
             <strong>Valor total</strong>
-            <strong>R$ 270,00</strong>
+            <strong>{formattedItemsTotal}</strong>
           </TotalValue>
-          <CheckoutButton onClick={handleBuyProduct}>Finalizar compra</CheckoutButton>
+          <CheckoutButton onClick={handleCheckout}>Finalizar compra</CheckoutButton>
         </ContentInfos>
       </Content>
     </Dialog.Portal>
