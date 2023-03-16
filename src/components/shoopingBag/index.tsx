@@ -24,6 +24,8 @@ export function ShoopingBag(){
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
   useState(false)
 
+  console.log(ItemsValue)
+
   const formattedItemsTotal = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',

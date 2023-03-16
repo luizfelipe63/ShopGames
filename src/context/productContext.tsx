@@ -32,8 +32,8 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
   const QuantityItems = newProductBag.length
 
   
-  const ItemsValue = newProductBag.reduce((total, valorAtual) => {
-    return (total + valorAtual.numberPrice)
+  const ItemsValue = newProductBag.reduce((total, product) => {
+    return total + product.numberPrice
   }, 0)
 
   
