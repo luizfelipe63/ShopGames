@@ -32,7 +32,7 @@ export const Content = styled(Dialog.Content, {
   flexDirection: 'column',
   padding: '3rem',
   width: 420,
-  background: '$gray800',
+  background: '$black600',
   position: 'fixed',
   top: 0,
   right: 0,
@@ -63,7 +63,7 @@ export const ContentInfos = styled('div', {
 })
 
 export const CheckoutButton = styled('button', {
-  background: '$green500',
+  background: '$Purple',
   color: '$white',
   fontWeight: 'bold',
   fontSize: '$normal',
@@ -71,5 +71,10 @@ export const CheckoutButton = styled('button', {
   borderRadius: 6,
   width: '100%',
   padding: '1.25rem 2rem',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  transition: 'opacity .2s',
+
+  '&:hover': {
+    opacity: 0.6
+  }
 })

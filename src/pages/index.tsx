@@ -1,16 +1,16 @@
 import Image from "next/image";
 import { GetStaticProps } from "next";
-import { HomeContainer, Products } from "../styles/pages/home";
+import { BackgroundPresetation, BgImgProduct, HomeContainer, HomeContent, Products } from "../styles/pages/home";
 import { stripe } from "../lib/stripe";
 
 
 import 'keen-slider/keen-slider.min.css'
 import {useKeenSlider} from 'keen-slider/react'
-
+import bg from '../assets/batman.jpg'
 
 import Stripe from "stripe";
 import Head from "next/head";
-import { Handbag } from "phosphor-react";
+import { Handbag, Plus } from "phosphor-react";
 import { useContext } from "react";
 import { ProductContext, ProductType } from "../context/productContext";
 
@@ -26,12 +26,12 @@ export default function Home({products}: HomeProps) {
     creatNewProductBag({...product})
   }
 
-  const [sliderRef] = useKeenSlider({
-    slides: {
-      perView: 3,
-      spacing: 48
-    }
-  })
+  // const [sliderRef] = useKeenSlider({
+  //   slides: {
+  //     perView: 3,
+  //     spacing: 48
+  //   }
+  // })
 
   return (
     <>
@@ -39,13 +39,77 @@ export default function Home({products}: HomeProps) {
         <title>Home | Ignite Shop</title>
       </Head>
 
-    <HomeContainer ref={sliderRef} className='KeenSlider'>
-      {products.map(product => {
+      <BackgroundPresetation>
+        {/* oioioio */}
+      </BackgroundPresetation>
+      <HomeContainer>
+        <h1>New and trending</h1>
+        <HomeContent>
+          <Products>
+            <BgImgProduct>
+            </BgImgProduct>
+            <footer>
+              <div>
+                <button>
+                  Add to cart
+                  <Plus/>
+                </button>
+                <span>R$ 29,90</span>
+              </div>
+              <h2>Batman</h2>
+            </footer>
+          </Products>
+          <Products>
+            <BgImgProduct>
+            </BgImgProduct>
+            <footer>
+              <div>
+                <button>
+                  Add to cart
+                  <Plus/>
+                </button>
+                <span>R$ 29,90</span>
+              </div>
+              <h2>Batman</h2>
+            </footer>
+          </Products>
+          <Products>
+            <BgImgProduct>
+            </BgImgProduct>
+            <footer>
+              <div>
+                <button>
+                  Add to cart
+                  <Plus/>
+                </button>
+                <span>R$ 29,90</span>
+              </div>
+              <h2>Batman</h2>
+            </footer>
+          </Products>
+          <Products>
+            <BgImgProduct>
+            </BgImgProduct>
+            <footer>
+              <div>
+                <button>
+                  Add to cart
+                  <Plus/>
+                </button>
+                <span>R$ 29,90</span>
+              </div>
+              <h2>Batman</h2>
+            </footer>
+          </Products>
+        </HomeContent>
+      </HomeContainer>
+      
+      
+      {/* {products.map(product => {
         return(
           <Products 
             href={`/product/${product.id}`} 
             key={product.id} 
-            className="keen-slider__slide"
             prefetch={false}
           >
             <Image src={product.imageUrl} alt='' width={520} height={480}/>
@@ -60,8 +124,7 @@ export default function Home({products}: HomeProps) {
             </footer>
           </Products>
         )
-      })}
-    </HomeContainer>
+      })} */}
     </>
   )
 }

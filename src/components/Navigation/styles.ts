@@ -1,41 +1,60 @@
 import { styled } from '../../styles'
 
-export const Header = styled('header', {
+export const Container = styled('header', {
+  width: 250,
+  position: 'fixed',
+  left: 0,
+  height: '100vh',
+  background: '$black600',
+
+  padding: '2rem 1.5rem',
   display: 'flex',
-  alignItems: 'center',
+  flexDirection: 'column',
   justifyContent: 'space-between',
-  padding: '2rem 0',
-  width: '100%',
-  maxWidth: 1180,
-  margin: '0 auto'
+
+  footer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '.75rem',
+
+    a: {
+      textDecoration: 'none',
+      color: '$gray300',
+      transition: 'color 0.1s',
+
+      '&:hover': {
+        color: '$white'
+      }
+    }
+  }
 })
 
-export const CardButton = styled('button', {
-  background: '$gray800',
-  color: '$grayScale',
-  cursor: 'pointer',
-  borderRadius: 6,
-  border: 0,
-  padding: '.75rem',
-  position: 'relative',
+export const LogoGames = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+})
 
-  span: {
-    position: 'absolute',
-    top: '-0.5625rem',
-    right: '-0.5625rem',
-    padding: 6,
+export const NavgationContent = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.5rem',
 
-    fontSize: ' 0.875rem',
-    fontWeight: 'bold',
-
+  button: {
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '50%',
-    width: '1.25rem',
-    height: '1.25rem',
+    gap: '1rem',
+    background: 'transparent',
+    color: '$white',
+    fontSize: '$normal',
+    border: 0,
 
-    background: '$green500',
-    color: '$white'
+    cursor: 'pointer',
+
+    div: {
+      background: '$gray300',
+      padding: '.5rem',
+      borderRadius: 8
+    }
   }
 })

@@ -1,8 +1,7 @@
-import { CardButton, Header } from "./styles";
+import { Container, LogoGames, NavgationContent,} from "./styles";
 import Image from 'next/image'
-import Logo from '../../assets/Logo.svg'
-import * as Dialog from '@radix-ui/react-dialog'
-import { Handbag } from 'phosphor-react'
+import Logo from '../../assets/Logo-games.svg'
+import { ChartBar, Crown, Handbag, Trophy } from 'phosphor-react'
 import { ShoopingBag } from '../../components/shoopingBag'
 import { useContext } from 'react'
 import { ProductContext } from "../../context/productContext";
@@ -11,17 +10,36 @@ export function Navigation() {
   const {QuantityItems} = useContext(ProductContext)
   
   return (
-    <Header>
-      <Image src={Logo} alt="" />
-      <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <CardButton>
-            <span>{QuantityItems}</span>
-            <Handbag size={24} />
-          </CardButton>
-        </Dialog.Trigger>
-        <ShoopingBag />
-      </Dialog.Root>
-    </Header>
+      <Container>
+        <LogoGames>
+          <Image src={Logo} alt="" width={130}/>
+        </LogoGames>
+        <NavgationContent>
+          <h2>Home</h2>
+          <h3>Top</h3>
+          <button>
+            <div>
+              <Trophy size={24}/>
+            </div>
+            Best of the year
+          </button>
+          <button>
+            <div>
+              <ChartBar size={24}/>
+            </div>
+            Popular in 2022
+          </button>
+          <button>
+            <div>
+              <Crown size={24}/>
+            </div>
+            All time 250
+          </button>
+        </NavgationContent>
+        <footer>
+          <span>Criado pro <a href="">Luiz Felipe</a></span>
+          <span>Dados da <a href="">API Rawg</a></span>
+        </footer>
+      </Container>
   )
 }

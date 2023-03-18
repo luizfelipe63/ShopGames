@@ -1,82 +1,67 @@
 import Link from 'next/link'
 import { styled } from '..'
+import bg from '../../assets/readdead.jpg'
+import bgbatman from '../../assets/batman.jpg'
 
 export const HomeContainer = styled('main', {
-  display: 'flex',
-  width: '100%',
-  maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
-  marginLeft: 'auto',
-  minHeight: 656
+  padding: '2rem',
+
+  h1: {
+    marginBottom: '2rem'
+  }
 })
 
-export const Products = styled(Link, {
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
-  borderRadius: 8,
-  cursor: 'pointer',
-  position: 'relative',
-  overflow: 'hidden',
+export const BackgroundPresetation = styled('div', {
+  backgroundImg: bg.src,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  height: 400,
+  width: '100%'
+})
 
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+export const HomeContent = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gap: '1rem'
+})
 
-  img: {
-    objectFit: 'cover'
-  },
-
+export const Products = styled('div', {
   footer: {
-    position: 'absolute',
-    bottom: '0.25rem',
-    left: '0.25rem',
-    right: '0.25rem',
-    padding: '2rem',
-    borderRadius: 6,
-
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-
-    transform: 'translateY(110%)',
-    opacity: 0,
-    transition: 'all 0.2s ease-in-out',
-
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-
-    strong: {
-      fontSize: '$lg',
-      color: '$gray100'
-    },
-
-    span: {
-      fontSize: '$xl',
-      fontWeight: 'bold',
-      color: '$green300'
-    },
+    flexDirection: 'column',
+    gap: '1rem',
+    borderRadius: '0px 0px 8px 8px',
+    background: '$black600',
+    padding: '1rem',
 
     div: {
       display: 'flex',
-      flexDirection: 'column',
-      gap: '.25rem'
-    },
+      justifyContent: 'space-between',
 
-    button: {
-      backgroundColor: '$green500',
-      color: '$white',
-      border: 0,
-      borderRadius: 6,
-      padding: '.75rem',
+      button: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '.5rem',
+        border: 0,
+        cursor: 'pointer',
+        background: 'transparent',
+        color: '$Whith',
+        transition: 'color 0.2s',
 
-      cursor: 'pointer',
-
-      display: 'flex',
-      alignItems: 'center'
-    }
-  },
-
-  '&:hover': {
-    footer: {
-      transform: 'translateY(0%)',
-      opacity: 1
+        '&:hover': {
+          color: '$Purple'
+        }
+      }
     }
   }
+})
+
+export const BgImgProduct = styled('div', {
+  borderRadius: '8px 8px 0px 0px',
+  backgroundImg: bgbatman.src,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  // width: 230,
+  height: 150
 })
