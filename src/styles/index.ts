@@ -1,4 +1,6 @@
 import { createStitches } from '@stitches/react'
+import type * as Stitches from '@stitches/react'
+import { ProductType } from '../context/productContext'
 
 export const {
   config,

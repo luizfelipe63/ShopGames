@@ -1,32 +1,41 @@
-import Link from 'next/link'
 import { styled } from '..'
-import bg from '../../assets/readdead.jpg'
-import bgbatman from '../../assets/batman.jpg'
 
 export const HomeContainer = styled('main', {
   padding: '2rem',
 
   h1: {
     marginBottom: '2rem'
+  },
+
+  header: {
+    display: 'grid',
+    gridTemplateColumns: ' repeat(25%, 150px)',
+    // gridTemplateRows: 'repeat(3, 1fr) min-content',
+    gap: '1rem'
   }
 })
 
 export const BackgroundPresetation = styled('div', {
-  backgroundImg: bg.src,
+  borderRadius: 8,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   height: 400,
-  width: '100%'
+  width: '100%',
+  marginBottom: '2.5rem'
 })
 
 export const HomeContent = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: '1rem'
+  gap: '2rem'
 })
 
 export const Products = styled('div', {
+  img: {
+    objectFit: 'cover'
+  },
+
   footer: {
     display: 'flex',
     flexDirection: 'column',
@@ -59,9 +68,7 @@ export const Products = styled('div', {
 
 export const BgImgProduct = styled('div', {
   borderRadius: '8px 8px 0px 0px',
-  backgroundImg: bgbatman.src,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  // width: 230,
   height: 150
 })
