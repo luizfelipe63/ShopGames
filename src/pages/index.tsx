@@ -12,6 +12,7 @@ import { ProductContext, ProductType } from "../context/productContext";
 
 
 import bgbattifild from '../assets/battifild.jpg'
+import Link from "next/link";
 
 interface HomeProps {
   games:{
@@ -24,7 +25,6 @@ interface HomeProps {
 
 export default function Home({games}: HomeProps) {
 
-  console.log(games)
 
   const {creatNewProductBag} = useContext(ProductContext)
 
@@ -51,13 +51,21 @@ export default function Home({games}: HomeProps) {
         <HomeContent>
         {games.map(item => {
           return(
-            <Products key={item.id}>
-            <BgImgProduct css={{
-              backgroundImg: item.imageUrl, 
-              backgroundPosition: 'center', 
-              backgroundSize:"cover"
-              }}>
-            </BgImgProduct>
+          <Products
+           key={item.id}
+           >
+            <Link  
+                href={`/games/${item.id}`}
+                prefetch={false}
+              >
+              <BgImgProduct css={{
+                backgroundImg: item.imageUrl, 
+                backgroundPosition: 'center', 
+                backgroundSize:"cover"
+                }}>
+              </BgImgProduct>
+            </Link>
+            
             <footer>
               <div>
                 <button>
@@ -66,7 +74,12 @@ export default function Home({games}: HomeProps) {
                 </button>
                 <span>R$ 29,90</span>
               </div>
-              <h2>{item.name}</h2>
+              <Link  
+                href={`/games/${item.id}`}
+                prefetch={false}
+              >
+                <h2>{item.name}</h2>
+              </Link>
             </footer>
           </Products>
           )
@@ -84,16 +97,12 @@ export const getStaticProps: GetStaticProps = async() => {
 
   const reponseResults = response.data.results
 
-  console.log(reponseResults)
-
-
-
-  const games = reponseResults.map(product => {
+  const games = reponseResults.map(game => {
 
     return{
-      id: product.id,
-      imageUrl: product.background_image,
-      name: product.name, 
+      id: game.id,
+      imageUrl: game.background_image,
+      name: game.name, 
     }
   })
 

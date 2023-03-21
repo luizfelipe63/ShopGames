@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { styled } from '..'
 
 export const HomeContainer = styled('main', {
@@ -32,9 +33,7 @@ export const HomeContent = styled('div', {
 })
 
 export const Products = styled('div', {
-  img: {
-    objectFit: 'cover'
-  },
+  cursor: 'pointer',
 
   footer: {
     display: 'flex',
@@ -43,6 +42,18 @@ export const Products = styled('div', {
     borderRadius: '0px 0px 8px 8px',
     background: '$black600',
     padding: '1rem',
+
+    a: {
+      color: '$gray100',
+      textDecoration: 'none'
+    },
+
+    h2: {
+      '&:hover': {
+        transition: 'opacity 0.2s',
+        opacity: 0.6
+      }
+    },
 
     div: {
       display: 'flex',

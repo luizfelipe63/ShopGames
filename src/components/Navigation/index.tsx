@@ -5,6 +5,7 @@ import { ChartBar, Crown, Handbag, Trophy } from 'phosphor-react'
 import { ShoopingBag } from '../../components/shoopingBag'
 import { useContext } from 'react'
 import { ProductContext } from "../../context/productContext";
+import Link from "next/link";
 
 export function Navigation() {
   const {QuantityItems} = useContext(ProductContext)
@@ -15,7 +16,9 @@ export function Navigation() {
           <Image src={Logo} alt="" width={130}/>
         </LogoGames>
         <NavgationContent>
-          <h2>Home</h2>
+          <Link href={'/'}>
+            <h2>Home</h2>
+          </Link>
           <h3>Top</h3>
           <button>
             <div>

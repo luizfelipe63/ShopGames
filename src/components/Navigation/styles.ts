@@ -40,6 +40,16 @@ export const NavgationContent = styled('div', {
   flexDirection: 'column',
   gap: '1.5rem',
 
+  a: {
+    color: '$white',
+    textDecoration: 'none',
+
+    '&:hover': {
+      transition: 'opacity .2s',
+      opacity: 0.6
+    }
+  },
+
   button: {
     display: 'flex',
     alignItems: 'center',

@@ -1,58 +1,58 @@
 import { styled } from '..'
 
 export const ProductsContainer = styled('div', {
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  alignItems: 'stretch',
-  gap: '4rem',
-  maxWidth: 1180,
-  margin: '0 auto'
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '5rem',
+  padding: '2rem',
+
+  h2: {
+    marginBottom: '1rem'
+  }
 })
 
 export const ImageProducts = styled('div', {
-  width: '100%',
-  maxWidth: 576,
-  height: 656,
+  height: 400,
+  borderRadius: 8
+})
 
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
-  borderRadius: 8,
-  padding: '0.25rem',
-
+export const GameContent = styled('div', {
+  maxWidth: 650,
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  flexDirection: 'column',
+  gap: '1.5rem',
 
-  img: {
-    objectFit: 'cover'
+  p: {
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    lineHeight: 1.6
   }
 })
 
 export const ProductsDetails = styled('div', {
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
+  gap: '1.5rem',
 
-  h1: {
-    fontSize: '$2xl',
+  h3: {
     color: '$gray300'
-  },
-
-  span: {
-    marginTop: '1rem',
-    display: 'block',
-    fontSize: '$2xl',
-    color: '$green300'
   },
 
   p: {
-    marginTop: '2.5rem',
     fontSize: '$md',
-    lineHeight: 1.6,
-    color: '$gray300'
+    lineHeight: 1.6
+  },
+
+  div: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '.75rem'
   },
 
   button: {
-    marginTop: 'auto',
-    backgroundColor: '$green500',
+    backgroundColor: '$Purple',
     border: 0,
     color: '$white',
     borderRadius: 8,
@@ -64,10 +64,10 @@ export const ProductsDetails = styled('div', {
     '&:disabled': {
       opacity: 0.6,
       cursor: 'not-allowed'
-    },
-
-    '&:not(:disabled):hover': {
-      backgroundColor: '$green300'
     }
+
+    // '&:not(:disabled):hover': {
+    //   backgroundColor: '$green300'
+    // }
   }
 })
