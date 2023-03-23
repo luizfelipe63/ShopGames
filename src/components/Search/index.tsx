@@ -2,8 +2,12 @@ import { Buttons, CardButton, FormSearch, LoginButton, SearchContainer } from ".
 import * as Dialog from '@radix-ui/react-dialog';
 import { ShoopingBag } from "../shoopingBag";
 import { Handbag, MagnifyingGlass, User } from "phosphor-react";
+import { useContext } from "react";
+import { ProductContext } from "../../context/productContext";
 
 export function Search(){
+  const {QuantityItems} = useContext(ProductContext)
+  
   return(
     <SearchContainer>
       <FormSearch>
@@ -16,7 +20,7 @@ export function Search(){
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <CardButton>
-              {/* <span>3</span> */}
+              <span>{QuantityItems}</span>
               <Handbag weight="fill" size={24} />
             </CardButton>
           </Dialog.Trigger>
