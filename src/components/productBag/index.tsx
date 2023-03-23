@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useContext } from "react";
 import { ProductContext, ProductType } from "../../context/productContext";
 import { Card, CardContainer, CardDescription } from "./styles";
@@ -18,12 +17,17 @@ export function ProductBag({ProductBag}: ProductBagProps){
   
   return(
     <CardContainer>
-      <Card>
-        <Image src={ProductBag.imageUrl} alt="" width={90} height={90}/>
+      <Card 
+      css={{
+          backgroundImg: ProductBag.imageUrl, 
+          backgroundPosition: 'top center', 
+          backgroundSize:"cover"
+      }}>
+        
       </Card>
       <CardDescription>
         <span>{ProductBag.name}</span>
-        <strong>{ProductBag.price}</strong>
+        <span>{ProductBag.price}</span>
         <button onClick={handleDeleteProductBag}>Remover</button>
       </CardDescription>
     </CardContainer>

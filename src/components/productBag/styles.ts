@@ -2,13 +2,15 @@ import { styled } from '../../styles'
 
 export const CardContainer = styled('div', {
   display: 'flex',
-  gap: '1.125rem'
+  gap: '1.125rem',
+  padding: '1rem',
+  borderRadius: 8,
+  background: '$gray300'
 })
 
 export const Card = styled('div', {
   width: 90,
-  height: 90,
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+  height: '100%',
   borderRadius: 8,
 
   display: 'flex',
@@ -33,7 +35,7 @@ export const CardDescription = styled('div', {
   button: {
     display: 'flex',
     background: 'transparent',
-    color: '$green300',
+    color: '$white',
     border: 0,
 
     cursor: 'pointer'
