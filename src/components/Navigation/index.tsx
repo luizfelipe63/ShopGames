@@ -1,14 +1,10 @@
 import { Container, LogoGames, NavgationContent,} from "./styles";
 import Image from 'next/image'
 import Logo from '../../assets/Logo-games.svg'
-import { ChartBar, Crown, Handbag, Trophy } from 'phosphor-react'
-import { ShoopingBag } from '../../components/shoopingBag'
-import { useContext } from 'react'
-import { ProductContext } from "../../context/productContext";
+import { ChartBar, Crown, Trophy } from 'phosphor-react'
 import Link from "next/link";
 
 export function Navigation() {
-  const {QuantityItems} = useContext(ProductContext)
   
   return (
       <Container>
@@ -40,8 +36,11 @@ export function Navigation() {
           </button>
         </NavgationContent>
         <footer>
-          <span>Criado pro <a href="">Luiz Felipe</a></span>
-          <span>Dados da <a href="">API Rawg</a></span>
+          <span>
+          Criado pro <a href="https://github.com/luizfelipe63" target={"_blank"} rel="noreferrer">Luiz Felipe</a>
+          </span>
+          <span>Dados da <a href="https://rawg.io/" target={"_blank"} rel="noreferrer">API Rawg</a>
+          </span>
         </footer>
       </Container>
   )

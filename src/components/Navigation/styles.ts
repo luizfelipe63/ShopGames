@@ -19,11 +19,11 @@ export const Container = styled('header', {
 
     a: {
       textDecoration: 'none',
-      color: '$gray300',
+      color: '$gray100',
       transition: 'color 0.1s',
 
       '&:hover': {
-        color: '$white'
+        opacity: 0.6
       }
     }
   }
