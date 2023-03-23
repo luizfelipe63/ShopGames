@@ -50,7 +50,7 @@ export default function Product({gameResult, genres, platforms, developers}: Pro
   return (
     <>
     <Head>
-        <title>{gameResult.name} | Ignite Shop</title>
+        <title>{gameResult.name} | ShopGames</title>
         
     </Head>
     <ProductsContainer>

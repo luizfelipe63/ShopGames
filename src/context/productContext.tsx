@@ -1,22 +1,17 @@
-import axios from "axios";
 import { createContext, ReactNode, useState } from "react";
 
 export interface ProductType {
-  id: string, 
+  id: number, 
   name: string,
   imageUrl: string,
-  price: number,
-  numberPrice: number,
-  description?: string,
-  defaultPriceId?: string
+  price: string,
 }
 
 interface ProductContextType{
   newProductBag: ProductType[]
   QuantityItems: number
-  ItemsValue: number
   creatNewProductBag: (product: ProductType) => void 
-  DeleteProductBag: (id: string) => void
+  DeleteProductBag: (id: number) => void
 }
 
 interface ProductContetexProviderProps {
@@ -32,22 +27,22 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
   const QuantityItems = newProductBag.length
 
   
-  const ItemsValue = newProductBag.reduce((total, product) => {
-    return total + product.numberPrice
-  }, 0)
+  // const ItemsValue = newProductBag.reduce((total, product) => {
+  //   return total + product.price
+  // }, 0)
 
   
 
-  function creatNewProductBag(Product: ProductType) {
+  function creatNewProductBag(games: ProductType) {
 
     const orderAlreadyExist = newProductBag.findIndex((productBag) => {
-      return productBag.id === Product.id
+      return productBag.id === games.id
     })
 
     if (orderAlreadyExist >= 0) {
       setNewProductBag((state) =>
         state.map((item) => {
-          if (Product.id === item.id) {
+          if (games.id === item.id) {
             return {
               ...item,
             }
@@ -57,11 +52,11 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
         }),
       )
     } else {
-      setNewProductBag((state) => [...state, Product])
+      setNewProductBag((state) => [...state, games])
     }
   }
 
-  function DeleteProductBag(id: string) {
+  function DeleteProductBag(id: number) {
     const ProductBagWhithoutDeleteOne = newProductBag.filter((product) => {
       return product.id !== id
     })
@@ -71,11 +66,10 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
 
   return(
     <ProductContext.Provider value={{
-      creatNewProductBag, 
-      DeleteProductBag,
       newProductBag,
       QuantityItems,
-      ItemsValue
+      creatNewProductBag, 
+      DeleteProductBag
       }}>
       {children}
     </ProductContext.Provider>

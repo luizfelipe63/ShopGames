@@ -15,11 +15,7 @@ import bgbattifild from '../assets/battifild.jpg'
 import Link from "next/link";
 
 interface HomeProps {
-  games:{
-    id: number,
-    imageUrl: string,
-    name:string
-  }[]
+  games: ProductType[]
   
 }
 
@@ -28,14 +24,14 @@ export default function Home({games}: HomeProps) {
 
   const {creatNewProductBag} = useContext(ProductContext)
 
-  const handleCreatProductBag = (product: ProductType) => {
-    creatNewProductBag({...product})
+  const handleCreatProductBag = (game: ProductType) => {
+    creatNewProductBag({...game})
   }
 
   return (
     <>
       <Head>
-        <title>Home | Ignite Shop</title>
+        <title>Home | ShopGames</title>
       </Head>
     <HomeContainer>
       <header>
@@ -68,11 +64,11 @@ export default function Home({games}: HomeProps) {
             
             <footer>
               <div>
-                <button>
+                <button onClick={() => handleCreatProductBag(item)}>
                   Add to cart
                   <Plus/>
                 </button>
-                <span>R$ 29,90</span>
+                <span>{item.price}</span>
               </div>
               <Link  
                 href={`/games/${item.id}`}
@@ -103,6 +99,7 @@ export const getStaticProps: GetStaticProps = async() => {
       id: game.id,
       imageUrl: game.background_image,
       name: game.name, 
+      price: 29.90
     }
   })
 

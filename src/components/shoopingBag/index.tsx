@@ -19,17 +19,11 @@ import {
 
 export function ShoopingBag(){
 
-  const {newProductBag,QuantityItems,ItemsValue} = useContext(ProductContext)
+  const {newProductBag,QuantityItems} = useContext(ProductContext)
 
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
   useState(false)
 
-  console.log(ItemsValue)
-
-  const formattedItemsTotal = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-}).format(ItemsValue)
 
   async function handleCheckout() {
     try {
@@ -70,7 +64,7 @@ export function ShoopingBag(){
           </QuantityOfItems>
           <TotalValue>
             <strong>Valor total</strong>
-            <strong>{formattedItemsTotal}</strong>
+            <strong>60</strong>
           </TotalValue>
           <CheckoutButton onClick={handleCheckout}>Finalizar compra</CheckoutButton>
         </ContentInfos>

@@ -25,7 +25,14 @@ export default async function handler(
     cancel_url: cancel_url,
     mode: 'payment',
     line_items: products.map(product => ({
-      price: product.defaultPriceId,
+      price: product.price,
+      price_data: {
+        currency: 'usd',
+
+        product_data: {
+          name: product.name
+        }
+      },
       quantity: 1
     }))
   })
