@@ -24,14 +24,16 @@ export default async function handler(
     success_url: success_url,
     cancel_url: cancel_url,
     mode: 'payment',
+    payment_method_types: ['card'],
+    payment_intent_data: {},
     line_items: products.map(product => ({
-      price: product.price,
       price_data: {
         currency: 'usd',
 
         product_data: {
           name: product.name
-        }
+        },
+        unit_amount: product.price * 100
       },
       quantity: 1
     }))

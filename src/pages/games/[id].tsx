@@ -14,7 +14,6 @@ import { GameContent, ImageProducts, ProductsContainer, ProductsDetails } from '
 interface ProductsProps {
   gameResult:{
     id: string
-    // alternative_names: number[]
     name: string
     imageUrl: string
     description: string
