@@ -20,7 +20,7 @@ export function Search(){
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <CardButton>
-              <span>{QuantityItems}</span>
+              {QuantityItems > 0 && <span>{QuantityItems}</span>}
               <Handbag weight="fill" size={24} />
             </CardButton>
           </Dialog.Trigger>
