@@ -1,5 +1,5 @@
 import axios from 'axios'
 
-export const api = axios.create({
+export const RawgAPI = axios.create({
   baseURL: 'https://api.rawg.io/api/'
 })

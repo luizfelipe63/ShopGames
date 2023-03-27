@@ -1,4 +1,5 @@
 import { styled } from '..'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const ProductsContainer = styled('div', {
   display: 'flex',
@@ -28,6 +29,15 @@ export const GameContent = styled('div', {
     overflow: 'hidden',
     lineHeight: 1.6
   }
+})
+
+export const SwiperContainer = styled('div', {
+  position: 'relative',
+  overflow: 'hidden',
+  listStyle: 'none',
+  padding: 0,
+  zIndex: 1,
+  display: 'block'
 })
 
 export const ProductsDetails = styled('div', {

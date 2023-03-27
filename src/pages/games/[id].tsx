@@ -1,15 +1,19 @@
-import axios from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
-import Stripe from 'stripe'
 import { ProductContext, ProductType } from '../../context/productContext'
-import { api } from '../../lib/axios'
-import { stripe } from '../../lib/stripe'
-import { GameContent, ImageProducts, ProductsContainer, ProductsDetails } from '../../styles/pages/products'
+import { RawgAPI } from '../../lib/axios'
+import { GameContent, ImageProducts, ProductsContainer, ProductsDetails, SwiperContainer } from '../../styles/pages/products'
 
+import SwiperCore, { Autoplay, Navigation, Pagination} from 'swiper';
+import { Swiper, SwiperSlide,  } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import "swiper/css/pagination";
+import 'swiper/css/navigation';
+import "swiper/css/autoplay";
 
 interface ProductsProps {
   gameResult:{
@@ -26,10 +30,15 @@ interface ProductsProps {
   }[],
   developers:{
     name: string
+  }[],
+  Screenshots:{
+    Screechot: string
   }[]
 }
 
-export default function Product({gameResult, genres, platforms, developers}: ProductsProps) {
+export default function Product({gameResult, genres, platforms, developers, Screenshots}: ProductsProps) {
+  SwiperCore.use([Autoplay]);
+ 
 
   const { creatNewProductBag } = useContext(ProductContext)
 
@@ -55,13 +64,36 @@ export default function Product({gameResult, genres, platforms, developers}: Pro
     <ProductsContainer>
       <GameContent>
         <h1>{gameResult.name}</h1>
-        <ImageProducts css={{
-          backgroundImg: gameResult.imageUrl,
-          backgroundPosition: 'center', 
-          backgroundSize:"cover"
-          }}>
-        
-        </ImageProducts>
+        <SwiperContainer>
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation]}
+          pagination={{clickable: true}}
+          navigation={{hideOnClick: true}}
+          slidesPerView={1}
+          autoplay={{
+                delay: 2500,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false
+               }}
+          loop
+          className='swiper-container'
+        >
+          
+            {Screenshots.map(image => {
+              return (
+                <SwiperSlide  key={image.Screechot}>
+                <ImageProducts css={{
+                  backgroundImg: image.Screechot, 
+                  backgroundPosition: 'center', 
+                  backgroundSize: 'cover'
+                  }}>
+                </ImageProducts>
+                </SwiperSlide>
+              )
+            })}
+          
+        </Swiper>
+        </SwiperContainer>
         <div>
           <h2>About</h2>
           {gameResult.description.split('$').map((p, index) => (
@@ -105,24 +137,36 @@ export const getStaticProps: GetStaticProps<any, {id: string}> = async ({params}
 
   const productId = params.id
 
+  const [infoGame, screenshotResponse] = await Promise.all([
+    RawgAPI.get(`games/${productId}?key=${key}`),
+    RawgAPI.get(`games/${productId}/screenshots?key=${key}`)
 
-  const response = await api.get(`games/${productId}?key=${key}`)
+  ])
 
-  const gameResult = response.data
 
-  const genres = response.data.genres.map(genre => {
+  const gameResult = infoGame.data
+
+
+  const Screenshots = screenshotResponse.data.results.map(image => {
+    return {
+      Screechot: image.image
+    }
+  })
+
+
+  const genres = infoGame.data.genres.map(genre => {
     return {
       name: genre.name
     }
   })
 
-  const platforms = response.data.platforms.map(platform => {
+  const platforms = infoGame.data.platforms.map(platform => {
     return {
       name: platform.platform.name
     }
   })
 
-  const developers = response.data.developers.map(developer => {
+  const developers = infoGame.data.developers.map(developer => {
     return {
       name: developer.name
     }
@@ -139,7 +183,8 @@ export const getStaticProps: GetStaticProps<any, {id: string}> = async ({params}
       }, 
       genres,
       platforms, 
-      developers
+      developers,
+      Screenshots
     },
     revalidate: 60 * 60 * 1
   }

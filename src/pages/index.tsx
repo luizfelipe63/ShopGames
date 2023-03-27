@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import { BackgroundPresetation, BgImgProduct, HomeContainer, HomeContent, Products } from "../styles/pages/home";
-import { api } from "../lib/axios";
+import { RawgAPI } from "../lib/axios";
 
 
 
@@ -89,7 +89,7 @@ export default function Home({games}: HomeProps) {
 export const getStaticProps: GetStaticProps = async() => {
   const key = process.env.RAWG_KEY
 
-  const response = await api.get(`games?key=${key}`)
+  const response = await RawgAPI.get(`games?key=${key}`)
 
   const reponseResults = response.data.results
 

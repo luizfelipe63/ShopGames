@@ -1,20 +1,26 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Stripe from "stripe";
+import { RawgAPI } from "../lib/axios";
 import { stripe } from "../lib/stripe";
 import { ImageContainer, SuccessContainer } from "../styles/pages/success";
 
 interface successProps{
   customerName: string
-  product:{
+  Game:{
     name: string,
     imageUrl: string
   }
 }
 
-export default function Success({customerName, product}: successProps ){
+export default function Success({customerName, Game}: successProps ){
+
+  const router = useRouter()
+  const { id } = router.query
+  
   return (
     <>
     
@@ -27,11 +33,11 @@ export default function Success({customerName, product}: successProps ){
     <SuccessContainer>
       <h1>Compra efetuada</h1>
       <ImageContainer>
-        <Image src={product.imageUrl} alt='' height={120} width={110} />
+        {/* <Image src={product.imageUrl} alt='' height={120} width={110} /> */}
       </ImageContainer>
       <p>
         Uhuul <strong>{customerName}</strong>, 
-        sua <strong>{product.name}</strong> já está a caminho da sua casa. 
+        sua <strong>{Game.name}</strong> já está a caminho da sua casa. 
       </p>
 
       <Link href='/'>
@@ -42,15 +48,18 @@ export default function Success({customerName, product}: successProps ){
   )
 } 
 
+
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
-  if(!query.session_id){
-    return{
-      redirect:{
-        permanent: false,
-        destination: '/'
-      }
-    }
-  }
+  const {id} = query
+
+  const key = process.env.RAWG_KEY
+
+
+ const Response =  await RawgAPI.get(`games/${id}?key=${key}`)
+
+ const Game = Response.data 
+
+ console.log(Game)
 
   const sessionId = String(query.session_id)
 
@@ -67,10 +76,10 @@ export const getServerSideProps: GetServerSideProps = async ({query}) => {
   return{
     props:{
       customerName,
-      product:{
-        name: product.name,
-        imageUrl: product.images[0]
-      }
+      Game:{
+        name: Game.name,
+        imageUrl: Game.background_image
+      },
     }
   }
 }
