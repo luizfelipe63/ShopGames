@@ -25,23 +25,23 @@ export default function Success({customerName, Game}: successProps ){
     <>
     
     <Head>
-        <title>Compra efetuda | Ignite Shop</title>
+        <title>Compra efetuda | ShopGames</title>
         
         <meta name="robots" content="noindex" />
     </Head>
 
     <SuccessContainer>
-      <h1>Compra efetuada</h1>
+      <h1>Parabéns compra efetuada</h1>
       <ImageContainer>
-        {/* <Image src={product.imageUrl} alt='' height={120} width={110} /> */}
+        <Image src={Game.imageUrl} alt='' height={150} width={150} />
       </ImageContainer>
       <p>
         Uhuul <strong>{customerName}</strong>, 
-        sua <strong>{Game.name}</strong> já está a caminho da sua casa. 
+        sua compra dos seus 3 jogos já estão na sua biblioteca. 
       </p>
 
       <Link href='/'>
-        Voltar ao catálogo
+        Voltar à home
       </Link>
     </SuccessContainer>
     </>
@@ -50,6 +50,16 @@ export default function Success({customerName, Game}: successProps ){
 
 
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
+
+  if(!query.session_id){
+    return{
+      redirect:{
+        permanent: false,
+        destination: '/'
+      }
+    }
+  }
+
   const {id} = query
 
   const key = process.env.RAWG_KEY

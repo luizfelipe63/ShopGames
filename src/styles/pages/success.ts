@@ -15,7 +15,7 @@ export const SuccessContainer = styled('main', {
 
   p: {
     fontSize: '$xl',
-    color: '$gray300',
+    color: '$gray100',
     maxWidth: 560,
     textAlign: 'center',
     marginTop: '2rem',
@@ -26,22 +26,19 @@ export const SuccessContainer = styled('main', {
     display: 'block',
     marginTop: '5rem',
     fontSize: '$lg',
-    color: '$green500',
+    color: '$white',
     textDecoration: 'none',
     fontWeight: 'bold',
+    transition: 'color 0.2s',
 
     '&:hover': {
-      color: '$green300'
+      color: '$Purple'
     }
   }
 })
 
 export const ImageContainer = styled('div', {
   width: '100%',
-  maxWidth: 130,
-  height: 145,
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
-  borderRadius: 8,
   padding: '0.25rem',
   marginTop: '4rem',
 
@@ -50,6 +47,7 @@ export const ImageContainer = styled('div', {
   justifyContent: 'center',
 
   img: {
-    objectFit: 'cover'
+    objectFit: 'cover',
+    borderRadius: 8
   }
 })

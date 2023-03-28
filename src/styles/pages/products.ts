@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const ProductsContainer = styled('div', {
   display: 'flex',
-  justifyContent: 'space-between',
+  flexDirection: 'column',
   gap: '5rem',
   padding: '2rem',
 
@@ -18,20 +18,14 @@ export const ImageProducts = styled('div', {
 })
 
 export const GameContent = styled('div', {
-  maxWidth: 650,
   display: 'flex',
-  flexDirection: 'column',
-  gap: '1.5rem',
-
-  p: {
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden',
-    lineHeight: 1.6
-  }
+  justifyContent: 'space-between',
+  gap: '5rem'
 })
 
 export const SwiperContainer = styled('div', {
+  maxWidth: 700,
+  width: '100%',
   position: 'relative',
   overflow: 'hidden',
   listStyle: 'none',
@@ -41,7 +35,7 @@ export const SwiperContainer = styled('div', {
 })
 
 export const ProductsDetails = styled('div', {
-  width: '100%',
+  maxWidth: 300,
   display: 'flex',
   flexDirection: 'column',
   gap: '1.5rem',
@@ -62,6 +56,7 @@ export const ProductsDetails = styled('div', {
   },
 
   button: {
+    marginTop: 'auto',
     backgroundColor: '$Purple',
     border: 0,
     color: '$white',
@@ -75,9 +70,15 @@ export const ProductsDetails = styled('div', {
       opacity: 0.6,
       cursor: 'not-allowed'
     }
+  }
+})
 
-    // '&:not(:disabled):hover': {
-    //   backgroundColor: '$green300'
-    // }
+export const About = styled('div', {
+  maxWidth: 649,
+  p: {
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    lineHeight: 1.6
   }
 })

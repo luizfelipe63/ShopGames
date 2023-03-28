@@ -3,14 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    // remotePatterns: [
-    //   {
-    //     protocol: 'https',
-    //     hostname: '.media.rawg.io/**'
-    //   }
-    // ],
     unoptimized: false,
-    domains: ['files.stripe.com']
+    domains: ['files.stripe.com', 'media.rawg.io']
   }
 }
 
