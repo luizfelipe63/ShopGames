@@ -6,7 +6,13 @@ import { useRouter } from "next/router";
 import Stripe from "stripe";
 import { RawgAPI } from "../lib/axios";
 import { stripe } from "../lib/stripe";
-import { ImageContainer, SuccessContainer } from "../styles/pages/success";
+import { ImageContainer, ImageContent, SuccessContainer } from "../styles/pages/success";
+
+import logoSuccess from '../assets/logo-game.svg'
+import fifa18 from '../assets/fifa18.jpeg'
+import batti from '../assets/battifild.jpg'
+
+
 
 interface successProps{
   customerName: string
@@ -31,10 +37,24 @@ export default function Success({customerName, Game}: successProps ){
     </Head>
 
     <SuccessContainer>
-      <h1>Parabéns compra efetuada</h1>
+      <Image src={logoSuccess} alt=""/>
       <ImageContainer>
-        <Image src={Game.imageUrl} alt='' height={150} width={150} />
+        <ImageContent css={{
+          backgroundImg: fifa18.src,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        }}>
+        
+        </ImageContent>
+        <ImageContent css={{
+          backgroundImg: batti.src,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        }}>
+        
+        </ImageContent>
       </ImageContainer>
+      <h2>Compra efetuada!</h2>
       <p>
         Uhuul <strong>{customerName}</strong>, 
         sua compra dos seus 3 jogos já estão na sua biblioteca. 

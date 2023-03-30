@@ -2,19 +2,19 @@ import { styled } from '..'
 
 export const SuccessContainer = styled('main', {
   display: 'flex',
-  flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
-  margin: '0 auto',
-  height: 656,
+  flexDirection: 'column',
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
 
-  h1: {
-    fontSize: '$2xl',
-    color: '$gray100'
+  h2: {
+    marginTop: '1rem'
   },
 
   p: {
-    fontSize: '$xl',
+    fontSize: '$md',
     color: '$gray100',
     maxWidth: 560,
     textAlign: 'center',
@@ -38,7 +38,13 @@ export const SuccessContainer = styled('main', {
 })
 
 export const ImageContainer = styled('div', {
-  width: '100%',
+  display: 'flex'
+})
+
+export const ImageContent = styled('div', {
+  width: 140,
+  height: 140,
+  borderRadius: '9999px',
   padding: '0.25rem',
   marginTop: '4rem',
 
