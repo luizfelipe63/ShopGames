@@ -28,12 +28,12 @@ export default async function handler(
     payment_intent_data: {},
     line_items: products.map(product => ({
       price_data: {
-        currency: 'usd',
+        currency: 'BRL',
 
         product_data: {
           name: product.name
         },
-        unit_amount: product.price * 100
+        unit_amount: product.numberPrice * 100
       },
       quantity: 1
     }))

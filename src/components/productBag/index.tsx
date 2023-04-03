@@ -18,16 +18,20 @@ export function ProductBag({ProductBag}: ProductBagProps){
   return(
     <CardContainer>
       <Card 
-      css={{
-          backgroundImg: ProductBag.imageUrl, 
-          backgroundPosition: 'top center', 
-          backgroundSize:"cover"
-      }}>
-        
+        css={{
+            backgroundImg: ProductBag.imageUrl, 
+            backgroundPosition: 'top center', 
+            backgroundSize:"cover"
+        }}>
       </Card>
       <CardDescription>
         <span>{ProductBag.name}</span>
-        <span>{ProductBag.price}</span>
+        <span>
+          { new Intl.NumberFormat('pt-BR',{
+            style: 'currency',
+            currency: 'BRL',
+            }).format(ProductBag.numberPrice)}
+        </span>
         <button onClick={handleDeleteProductBag}>Remover</button>
       </CardDescription>
     </CardContainer>

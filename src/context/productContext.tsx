@@ -4,7 +4,8 @@ export interface ProductType {
   id: number, 
   name: string,
   imageUrl: string,
-  price: number
+  price: string,
+  numberPrice: number
 }
 
 interface ProductContextType{

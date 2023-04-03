@@ -50,7 +50,7 @@ export default function Product({gameResult, genres, platforms, developers, Scre
 
   const { creatNewProductBag } = useContext(ProductContext)
 
-  // const handleCreatProductBag = () => {
+  // const handleCreatProductBag = (product: ProductsProps) => {
   //   creatNewProductBag({...product})
   // }
   
@@ -74,12 +74,6 @@ export default function Product({gameResult, genres, platforms, developers, Scre
       <GameContent>
         <SwiperContainer>
           <Swiper
-          style={{
-            "--swiper-navigation-size": 32,
-            "--swiper-navigation-weight": 'bold',
-            "--swiper-navigation-color": "#fff",
-            "--swiper-pagination-color": "#7209B7",
-          }}
             modules={[Autoplay, Pagination, Navigation]}
             pagination={{clickable: true}}
             navigation={{hideOnClick: true }}
