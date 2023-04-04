@@ -5,7 +5,8 @@ export const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',
   width: '100vw',
   height: '100vh',
-  inset: 0
+  inset: 0,
+  background: 'rgba(0, 0, 0, 0.75)'
 })
 
 export const CloseButton = styled(Dialog.Close, {
@@ -28,7 +29,6 @@ export const Title = styled(Dialog.Title, {
 
 export const Content = styled(Dialog.Content, {
   display: 'flex',
-  // justifyContent: 'space-between',
   flexDirection: 'column',
   padding: '3rem',
   width: 420,
@@ -36,14 +36,22 @@ export const Content = styled(Dialog.Content, {
   position: 'fixed',
   top: 0,
   right: 0,
-  bottom: 0
+  bottom: 0,
+
+  '@bp1': {
+    width: '80%',
+    paddingLeft: '1.5rem',
+    paddingRight: '1.5rem'
+  }
 })
 
 export const ContentProduct = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '1.5rem',
-  marginBottom: '2rem'
+  marginBottom: '2rem',
+  overflowX: 'hidden',
+  overflowY: 'auto'
 })
 
 export const QuantityOfItems = styled('div', {

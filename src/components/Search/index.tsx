@@ -13,7 +13,7 @@ export function Search(){
       <FormSearch>
         <div>
           <MagnifyingGlass weight="bold" size={16}/>
-          <input type="search" name="" id="" placeholder="Search games..."/>
+          <input type="search" name="" id="" placeholder="Pesquisar jogos..."/>
         </div>
       </FormSearch>
       <Buttons>

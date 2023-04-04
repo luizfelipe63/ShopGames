@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ProductContext, ProductType } from "../../context/productContext";
 import { Card, CardContainer, CardDescription } from "./styles";
+import Image from "next/image";
 
 interface ProductBagProps{
   ProductBag: ProductType
@@ -20,7 +21,7 @@ export function ProductBag({ProductBag}: ProductBagProps){
       <Card 
         css={{
             backgroundImg: ProductBag.imageUrl, 
-            backgroundPosition: 'top center', 
+            backgroundPosition: 'center', 
             backgroundSize:"cover"
         }}>
       </Card>

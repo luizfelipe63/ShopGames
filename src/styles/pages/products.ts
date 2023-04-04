@@ -1,5 +1,4 @@
 import { styled } from '..'
-import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const ProductsContainer = styled('div', {
   display: 'flex',
@@ -9,18 +8,25 @@ export const ProductsContainer = styled('div', {
 
   h2: {
     marginBottom: '1rem'
+  },
+
+  '@bp1': {
+    padding: '0 1rem'
   }
 })
 
 export const ImageProducts = styled('div', {
-  height: 400,
-  borderRadius: 8
+  height: 400
 })
 
 export const GameContent = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
-  gap: '5rem'
+  gap: '5rem',
+
+  '@bp1': {
+    flexDirection: 'column'
+  }
 })
 
 export const SwiperContainer = styled('div', {
@@ -31,7 +37,11 @@ export const SwiperContainer = styled('div', {
   listStyle: 'none',
   padding: 0,
   zIndex: 1,
-  display: 'block'
+  display: 'block',
+
+  '@bp1': {
+    zIndex: 0
+  }
 })
 
 export const ProductsDetails = styled('div', {

@@ -5,12 +5,14 @@ export interface ProductType {
   name: string,
   imageUrl: string,
   price: string,
+  description: string
   numberPrice: number
 }
 
 interface ProductContextType{
   newProductBag: ProductType[]
   QuantityItems: number
+  ItemsValue: number
   creatNewProductBag: (product: ProductType) => void 
   DeleteProductBag: (id: number) => void
 }
@@ -28,9 +30,9 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
   const QuantityItems = newProductBag.length
 
   
-  // const ItemsValue = newProductBag.reduce((total, product) => {
-  //   return total + product.price
-  // }, 0)
+  const ItemsValue = newProductBag.reduce((total, product) => {
+    return total + product.numberPrice
+  }, 0)
 
   
 
@@ -69,6 +71,7 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
     <ProductContext.Provider value={{
       newProductBag,
       QuantityItems,
+      ItemsValue,
       creatNewProductBag, 
       DeleteProductBag
       }}>

@@ -24,12 +24,7 @@ import "swiper/css/autoplay";
 import { css } from '../../styles'
 
 interface ProductsProps {
-  gameResult:{
-    id: string
-    name: string
-    imageUrl: string
-    description: string,
-  }, 
+  gameResult: ProductType
   genres:{
     name: string
   }[],
@@ -50,9 +45,9 @@ export default function Product({gameResult, genres, platforms, developers, Scre
 
   const { creatNewProductBag } = useContext(ProductContext)
 
-  // const handleCreatProductBag = (product: ProductsProps) => {
-  //   creatNewProductBag({...product})
-  // }
+  const handleCreatProductBag = () => {
+    creatNewProductBag({...gameResult})
+  }
   
   const {isFallback} = useRouter()
 
@@ -90,12 +85,12 @@ export default function Product({gameResult, genres, platforms, developers, Scre
               {Screenshots.map(image => {
                 return (
                   <SwiperSlide  key={image.Screechot}>
-                  <ImageProducts css={{
-                    backgroundImg: image.Screechot, 
-                    backgroundPosition: 'center', 
-                    backgroundSize: 'cover',
-                    }}>
-                  </ImageProducts>
+                      <ImageProducts css={{
+                        backgroundImg: image.Screechot,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        }}>
+                      </ImageProducts>
                   </SwiperSlide>
                 )
               })}
@@ -115,7 +110,7 @@ export default function Product({gameResult, genres, platforms, developers, Scre
             <h3>Desenvolvedores</h3>
             <p>{developers.map((g) => g.name).join(', ')}</p>
           </div>
-          <button>Colocar na sacola</button>
+          <button onClick={handleCreatProductBag}>Colocar na sacola</button>
         </ProductsDetails>
       </GameContent>
       <About>

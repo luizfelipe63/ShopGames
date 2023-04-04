@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { styled } from '..'
 
 export const HomeContainer = styled('main', {
@@ -8,28 +7,47 @@ export const HomeContainer = styled('main', {
     marginBottom: '2rem'
   },
 
-  header: {
-    display: 'grid',
-    gridTemplateColumns: ' repeat(25%, 150px)',
-    // gridTemplateRows: 'repeat(3, 1fr) min-content',
-    gap: '1rem'
+  '@bp1': {
+    padding: '1rem'
   }
 })
 
-export const BackgroundPresetation = styled('div', {
-  borderRadius: 8,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  height: 400,
+export const HeaderContent = styled('header', {
   width: '100%',
-  marginBottom: '2.5rem'
+  position: 'relative',
+  overflow: 'hidden',
+  listStyle: 'none',
+  padding: 0,
+  zIndex: '-99999',
+  display: 'block'
+})
+
+export const LoadPresetation = styled('div', {
+  width: '100%',
+  height: 400,
+  padding: '2rem',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+
+  h3: {
+    color: '$white',
+    fontSize: '$2xl'
+  },
+
+  '@bp1': {
+    padding: '1rem'
+  }
 })
 
 export const HomeContent = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: '2rem'
+  gap: '2rem',
+
+  '@bp1': {
+    gridTemplateColumns: '1fr'
+  }
 })
 
 export const Products = styled('div', {
@@ -49,6 +67,8 @@ export const Products = styled('div', {
     },
 
     h2: {
+      fontSize: '$md',
+
       '&:hover': {
         transition: 'opacity 0.2s',
         opacity: 0.6

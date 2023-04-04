@@ -1,22 +1,27 @@
-import Image from "next/image";
 import { GetStaticProps } from "next";
-import { BackgroundPresetation, BgImgProduct, HomeContainer, HomeContent, Products } from "../styles/pages/home";
+import { 
+  BgImgProduct, 
+  HeaderContent, 
+  HomeContainer, 
+  HomeContent, 
+  LoadPresetation, 
+  Products } from "../styles/pages/home";
 import { RawgAPI } from "../lib/axios";
-
-
 
 import Head from "next/head";
 import { Plus } from "phosphor-react";
 import { useContext } from "react";
 import { ProductContext, ProductType } from "../context/productContext";
 
-
-import bgbattifild from '../assets/battifild.jpg'
 import Link from "next/link";
 
+import { Autoplay} from 'swiper';
+import { Swiper, SwiperSlide,  } from 'swiper/react';
+import "swiper/css/autoplay";
+import 'swiper/css';
+
 interface HomeProps {
-  games: ProductType[]
-  
+  games: ProductType[],
 }
 
 export default function Home({games}: HomeProps) {
@@ -33,17 +38,37 @@ export default function Home({games}: HomeProps) {
       <Head>
         <title>Home | ShopGames</title>
       </Head>
-    <HomeContainer>
-      <header>
-        <BackgroundPresetation 
-        css={{
-          backgroundImg: bgbattifild.src, 
-          backgroundPosition: 'top center', 
-          backgroundSize:"cover"
-        }}>
-        </BackgroundPresetation>
-      </header>
-        <h1>New and trending</h1>
+      <HeaderContent>
+        <Swiper
+          modules={[Autoplay]}
+          centeredSlides={true}
+          slidesPerView={1}
+          autoplay={{
+                delay: 2500,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false
+              }}
+          loop
+          className='swiper-container'
+        >
+          {games.map(item => {
+            return(
+              <SwiperSlide key={item.id}>
+                <LoadPresetation
+                  css={{
+                    backgroundImg: item.imageUrl,
+                    backgroundPosition: 'center',
+                    backgroundSize:"cover"
+                  }}>
+                    <h3>{item.name}</h3>
+                </LoadPresetation>
+              </SwiperSlide>
+            )
+          })} 
+        </Swiper>
+      </HeaderContent>
+      <HomeContainer>
+        <h1>Os Melhores</h1>
         <HomeContent>
         {games.map(item => {
           return(
@@ -65,10 +90,15 @@ export default function Home({games}: HomeProps) {
             <footer>
               <div>
                 <button onClick={() => handleCreatProductBag(item)}>
-                  Add to cart
+                  Adicionar jogo
                   <Plus/>
                 </button>
-                <span>{item.price}</span>
+                <span>
+                    { new Intl.NumberFormat('pt-BR',{
+                    style: 'currency',
+                    currency: 'BRL',
+                  }).format(item.numberPrice)}
+                </span>
               </div>
               <Link  
                 href={`/games/${item.id}`}
@@ -99,13 +129,13 @@ export const getStaticProps: GetStaticProps = async() => {
       id: game.id,
       imageUrl: game.background_image,
       name: game.name, 
-      price: 29.90
+      numberPrice: Math.floor(Math.random() * 15 + 1)
     }
   })
 
   return{
     props: {
-      games
+      games,
     },
     revalidate: 60 * 60 * 2
   }

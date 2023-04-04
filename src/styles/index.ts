@@ -1,6 +1,4 @@
 import { createStitches } from '@stitches/react'
-import type * as Stitches from '@stitches/react'
-import { ProductType } from '../context/productContext'
 
 export const {
   config,
@@ -40,5 +38,10 @@ export const {
     backgroundImg: value => ({
       background: `url(${value})`
     })
+  },
+  media: {
+    bp1: '(max-width: 640px)',
+    bp2: '(min-width: 768px)',
+    bp3: '(min-width: 1024px)'
   }
 })

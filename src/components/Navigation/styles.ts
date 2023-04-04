@@ -25,7 +25,23 @@ export const Container = styled('header', {
       '&:hover': {
         opacity: 0.6
       }
+    },
+
+    '@bp1': {
+      display: 'none'
     }
+  },
+
+  '@bp1': {
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: '4rem',
+    width: '100%',
+    padding: '0 1rem',
+    left: 0,
+    top: 0
   }
 })
 
@@ -33,6 +49,18 @@ export const LogoGames = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
+})
+
+export const MenuButton = styled('button', {
+  display: 'none',
+
+  '@bp1': {
+    display: 'flex',
+    background: 'transparent',
+    border: 0,
+    color: '$white',
+    cursor: 'pointer'
+  }
 })
 
 export const NavgationContent = styled('div', {
@@ -66,5 +94,18 @@ export const NavgationContent = styled('div', {
       padding: '.5rem',
       borderRadius: 8
     }
+  },
+
+  '@bp1': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    position: 'absolute',
+    padding: '1.5rem',
+    borderRadius: 8,
+    top: 65,
+    right: 12,
+    background: '$black600',
+    zIndex: 1
   }
 })

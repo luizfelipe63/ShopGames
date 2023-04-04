@@ -12,21 +12,18 @@ export const Card = styled('div', {
   width: 90,
   height: '100%',
   borderRadius: 8,
+  background: '$black800',
 
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-
-  img: {
-    objectFit: 'cover'
-  }
+  justifyContent: 'center'
 })
 
 export const CardDescription = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  gap: '.5rem',
+  gap: '.3rem',
 
   span: {
     color: '$grayScale'

@@ -2,8 +2,9 @@ import * as Dialog from '@radix-ui/react-dialog'
 import axios from 'axios'
 import { X } from 'phosphor-react'
 import { useContext, useState } from 'react'
-import { ProductContext, ProductType } from '../../context/productContext'
+import { ProductContext } from '../../context/productContext'
 import { ProductBag } from '../productBag'
+import * as ScrollArea from '@radix-ui/react-scroll-area';
 import { 
   CheckoutButton, 
   CloseButton, 
@@ -15,15 +16,20 @@ import {
   Title, 
   TotalValue 
 } from './styles'
+import { ScrollAreaThumb } from '@radix-ui/react-scroll-area'
 
 
 export function ShoopingBag(){
 
-  const {newProductBag,QuantityItems} = useContext(ProductContext)
+  const {newProductBag, QuantityItems, ItemsValue} = useContext(ProductContext)
 
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
   useState(false)
-
+  
+  const FormatPrice = new Intl.NumberFormat('pt-BR',{
+    style: 'currency',
+    currency: 'BRL',
+  }).format(ItemsValue)
 
   async function handleCheckout() {
     try {
@@ -51,12 +57,11 @@ export function ShoopingBag(){
         <Title>
           Sacola de compras
         </Title>
-       
-        <ContentProduct>
-         {newProductBag.map(item => {
-          return <ProductBag key={item.id} ProductBag={item}/>
-         })}
-        </ContentProduct>
+          <ContentProduct>
+            {newProductBag.map(item => {
+              return <ProductBag key={item.id} ProductBag={item}/>
+            })}
+          </ContentProduct>
         <ContentInfos>
           <QuantityOfItems>
             <span>Quantidades</span>
@@ -64,7 +69,7 @@ export function ShoopingBag(){
           </QuantityOfItems>
           <TotalValue>
             <strong>Valor total</strong>
-            <strong>60</strong>
+            <strong>{FormatPrice}</strong>
           </TotalValue>
           <CheckoutButton onClick={handleCheckout}>Finalizar compra</CheckoutButton>
         </ContentInfos>
