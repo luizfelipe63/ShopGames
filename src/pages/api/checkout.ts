@@ -31,7 +31,8 @@ export default async function handler(
         currency: 'BRL',
 
         product_data: {
-          name: product.name
+          name: product.name,
+          images: [product.imageUrl]
         },
         unit_amount: product.numberPrice * 100
       },

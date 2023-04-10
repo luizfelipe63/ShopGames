@@ -4,25 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Stripe from "stripe";
-import { RawgAPI } from "../lib/axios";
 import { stripe } from "../lib/stripe";
 import { ImageContainer, ImageContent, SuccessContainer } from "../styles/pages/success";
 
 import logoSuccess from '../assets/logo-game.svg'
-import fifa18 from '../assets/fifa18.jpeg'
-import batti from '../assets/battifild.jpg'
-
 
 
 interface successProps{
-  customerName: string
-  Game:{
-    name: string,
-    imageUrl: string
-  }
+  customerName: string,
+  QuantityOfProducts: number
+  products: {
+    name: string
+    imageUrl
+  }[]
 }
 
-export default function Success({customerName, Game}: successProps ){
+export default function Success({customerName, products, QuantityOfProducts}: successProps ){
 
   const router = useRouter()
   const { id } = router.query
@@ -39,25 +36,25 @@ export default function Success({customerName, Game}: successProps ){
     <SuccessContainer>
       <Image src={logoSuccess} alt=""/>
       <ImageContainer>
-        <ImageContent css={{
-          backgroundImg: fifa18.src,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
-        }}>
-        
-        </ImageContent>
-        <ImageContent css={{
-          backgroundImg: batti.src,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
-        }}>
-        
-        </ImageContent>
+        {products.map(item => { 
+          return(
+            <ImageContent 
+              key={item.name} 
+              css={{
+                backgroundImg: item.imageUrl, 
+                backgroundPosition: 'center',
+                backgroundSize: 'cover'
+              }}>
+
+            </ImageContent>
+          )
+        })}
+       
       </ImageContainer>
       <h2>Compra efetuada!</h2>
       <p>
         Uhuul <strong>{customerName}</strong>, 
-        sua compra dos seus 3 jogos já estão na sua biblioteca. 
+        sua compra dos seus {QuantityOfProducts} jogos já estão na sua biblioteca. 
       </p>
 
       <Link href='/'>
@@ -69,7 +66,7 @@ export default function Success({customerName, Game}: successProps ){
 } 
 
 
-export const getServerSideProps: GetServerSideProps = async ({query}) => {
+export const getServerSideProps: GetServerSideProps<any, {id: string}> = async ({query}) => {
 
   if(!query.session_id){
     return{
@@ -80,16 +77,6 @@ export const getServerSideProps: GetServerSideProps = async ({query}) => {
     }
   }
 
-  const {id} = query
-
-  const key = process.env.RAWG_KEY
-
-
- const Response =  await RawgAPI.get(`games/${id}?key=${key}`)
-
- const Game = Response.data 
-
- console.log(Game)
 
   const sessionId = String(query.session_id)
 
@@ -97,19 +84,25 @@ export const getServerSideProps: GetServerSideProps = async ({query}) => {
     expand: ['line_items', 'line_items.data.price.product']
   })
 
-  const customerName = session.customer_details.name
-  const product = session.line_items.data[0].price.product as Stripe.Product
+  const QuantityOfProducts = session.line_items.data.length
 
-  console.log(session.line_items.data)
+  const customerName = session.customer_details.name
+  const products = session.line_items.data.map(item => {
+    const product = item.price.product as Stripe.Product;
+
+    return ({
+      name: product.name,
+      imageUrl: product.images[0]
+    })
+  })
+
   
 
   return{
     props:{
       customerName,
-      Game:{
-        name: Game.name,
-        imageUrl: Game.background_image
-      },
+      products,
+      QuantityOfProducts
     }
   }
 }
