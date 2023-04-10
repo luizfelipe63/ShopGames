@@ -1,9 +1,11 @@
 import { Container, LogoGames, MenuButton, NavgationContent} from "./styles";
 import Image from 'next/image'
 import Logo from '../../assets/Logo-games.svg'
-import { ChartBar, Crown, List, Trophy } from 'phosphor-react'
+import { ChartBar, Crown, List, Trophy, X } from 'phosphor-react'
 import Link from "next/link";
 import { useState } from "react";
+import { css } from "../../styles";
+
 
 export function Navigation() {
 
@@ -17,10 +19,9 @@ export function Navigation() {
         <MenuButton onClick={() => {
           setIsMenuExpanded(!isMenuExpanded)
         }}>
-          <List size={24}/>
+          { isMenuExpanded ? <X size={24}/>  : <List size={24}/>}
         </MenuButton>
-         {isMenuExpanded &&
-         <NavgationContent >
+        <NavgationContent Responsive={ isMenuExpanded ? "mobile" : null} >
           <Link href={'/'}>
             <h2>Home</h2>
           </Link>
@@ -43,8 +44,7 @@ export function Navigation() {
             </div>
               Esporte
           </button>
-        </NavgationContent>}
-        
+          </NavgationContent>
         <footer>
           <span>
           Criado pro <a href="https://github.com/luizfelipe63" target={"_blank"} rel="noreferrer">Luiz Felipe</a>

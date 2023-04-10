@@ -96,16 +96,26 @@ export const NavgationContent = styled('div', {
     }
   },
 
+  variants: {
+    Responsive: {
+      mobile: {
+        '@bp1': {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          position: 'absolute',
+          padding: '1.5rem',
+          borderRadius: 8,
+          top: 65,
+          right: 12,
+          background: '$black600',
+          zIndex: 1
+        }
+      }
+    }
+  },
+
   '@bp1': {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    position: 'absolute',
-    padding: '1.5rem',
-    borderRadius: 8,
-    top: 65,
-    right: 12,
-    background: '$black600',
-    zIndex: 1
+    display: 'none'
   }
 })
