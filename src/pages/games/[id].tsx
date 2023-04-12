@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { ProductContext, ProductType } from '../../context/productContext'
 import { RawgAPI } from '../../lib/axios'
 import { 
@@ -21,7 +21,6 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import "swiper/css/autoplay";
-import { css } from '../../styles'
 
 interface ProductsProps {
   gameResult: ProductType
@@ -56,7 +55,6 @@ export default function Product({gameResult, genres, platforms, developers, Scre
       <p>Loading...</p>
     )
   }
-
 
   return (
     <>
