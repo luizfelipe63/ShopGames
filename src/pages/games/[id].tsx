@@ -1,11 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ProductContext, ProductType } from '../../context/productContext'
 import { RawgAPI } from '../../lib/axios'
 import { 
   About,
+  AboutParagraph,
   GameContent, 
   ImageProducts, 
   ProductsContainer, 
@@ -21,6 +22,7 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import "swiper/css/autoplay";
+import { CaretDown, CaretUp } from 'phosphor-react'
 
 interface ProductsProps {
   gameResult: ProductType
@@ -39,6 +41,9 @@ interface ProductsProps {
 }
 
 export default function Product({gameResult, genres, platforms, developers, Screenshots}: ProductsProps) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+
   SwiperCore.use([Autoplay]);
  
 
@@ -115,10 +120,18 @@ export default function Product({gameResult, genres, platforms, developers, Scre
             <h2>About</h2>
             {gameResult.description.split('$').map((p, index) => (
             <div key={index}>
-              <p>
+              <AboutParagraph expand={isExpanded ? 'visible': null}>
                 {p}
-              </p>
-              <button>more</button>
+              </AboutParagraph>
+              {!isExpanded ? 
+              <button onClick={() => setIsExpanded(!isExpanded)}>
+                Mais 
+                <CaretDown/>
+              </button> : 
+              <button onClick={() => setIsExpanded(!isExpanded)}>
+                Menos
+                <CaretUp/>
+              </button>}
             </div>
           ))}
       </About>

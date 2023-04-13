@@ -4,8 +4,6 @@ import Logo from '../../assets/Logo-games.svg'
 import { ChartBar, Crown, List, Trophy, X } from 'phosphor-react'
 import Link from "next/link";
 import { useState } from "react";
-import { css } from "../../styles";
-
 
 export function Navigation() {
 

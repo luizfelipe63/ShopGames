@@ -30,7 +30,7 @@ export const GameContent = styled('div', {
 })
 
 export const SwiperContainer = styled('div', {
-  maxWidth: 700,
+  maxWidth: 650,
   width: '100%',
   position: 'relative',
   overflow: 'hidden',
@@ -84,11 +84,37 @@ export const ProductsDetails = styled('div', {
 })
 
 export const About = styled('div', {
-  maxWidth: 649,
-  p: {
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden',
-    lineHeight: 1.6
+  button: {
+    background: 'transparent',
+    color: '$gray100',
+    border: 0,
+
+    display: 'flex',
+    alignItems: 'center',
+    gap: '.5rem',
+    transition: 'color .2s',
+
+    '&:hover': {
+      color: '$Purple'
+    }
+  }
+})
+
+export const AboutParagraph = styled('p', {
+  maxWidth: 650,
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  lineHeight: 1.6,
+  marginBottom: '.5rem',
+
+  variants: {
+    expand: {
+      visible: {
+        whiteSpace: 'break-spaces',
+        textOverflow: 'ellipsis',
+        overflow: 'visible'
+      }
+    }
   }
 })
