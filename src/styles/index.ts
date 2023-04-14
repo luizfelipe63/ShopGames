@@ -7,7 +7,7 @@ export const {
   globalCss,
   keyframes,
   createTheme,
-  getCssText
+  getCssText,
 } = createStitches({
   theme: {
     colors: {
@@ -24,24 +24,24 @@ export const {
       Purple: '#7209B7',
 
       green500: '#00875f',
-      green300: '#00b37e'
+      green300: '#00b37e',
     },
     fontSizes: {
       md: '1.125rem',
       normal: '1rem',
       lg: '1.25rem',
       xl: '1.5rem',
-      '2xl': '2rem'
-    }
+      '2xl': '2rem',
+    },
   },
   utils: {
-    backgroundImg: value => ({
-      background: `url(${value})`
-    })
+    backgroundImg: (value) => ({
+      background: `url(${value})`,
+    }),
   },
   media: {
     bp1: '(max-width: 640px)',
     bp2: '(min-width: 768px)',
-    bp3: '(min-width: 1024px)'
-  }
+    bp3: '(min-width: 1024px)',
+  },
 })

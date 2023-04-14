@@ -7,25 +7,20 @@ import { Navigation } from '../components/Navigation'
 import { Search } from '../components/Search'
 import { useRouter } from 'next/router'
 
-
-
 GlobalStyle()
 
-
 export default function App({ Component, pageProps }: AppProps) {
-  const { pathname } = useRouter();
+  const { pathname } = useRouter()
 
-  const showNavigation = pathname !== "/success";
-  
-  return(
+  const showNavigation = pathname !== '/success'
+
+  return (
     <ProductContextProvider>
       <Container>
-          {showNavigation && <Navigation/>}
-          {showNavigation && <Search/>}
-          <Component {...pageProps} />
+        {showNavigation && <Navigation />}
+        {showNavigation && <Search />}
+        <Component {...pageProps} />
       </Container>
     </ProductContextProvider>
   )
 }
-
-  

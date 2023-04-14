@@ -7,6 +7,6 @@ export const Container = styled('div', {
 
   '@bp1': {
     margin: '0',
-    padding: 0
-  }
+    padding: 0,
+  },
 })

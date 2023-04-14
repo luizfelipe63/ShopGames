@@ -23,13 +23,13 @@ export const Container = styled('header', {
       transition: 'color 0.1s',
 
       '&:hover': {
-        opacity: 0.6
-      }
+        opacity: 0.6,
+      },
     },
 
     '@bp1': {
-      display: 'none'
-    }
+      display: 'none',
+    },
   },
 
   '@bp1': {
@@ -41,14 +41,14 @@ export const Container = styled('header', {
     width: '100%',
     padding: '0 1rem',
     left: 0,
-    top: 0
-  }
+    top: 0,
+  },
 })
 
 export const LogoGames = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
 })
 
 export const MenuButton = styled('button', {
@@ -59,8 +59,8 @@ export const MenuButton = styled('button', {
     background: 'transparent',
     border: 0,
     color: '$white',
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 })
 
 export const NavgationContent = styled('div', {
@@ -74,8 +74,8 @@ export const NavgationContent = styled('div', {
 
     '&:hover': {
       transition: 'opacity .2s',
-      opacity: 0.6
-    }
+      opacity: 0.6,
+    },
   },
 
   button: {
@@ -92,8 +92,8 @@ export const NavgationContent = styled('div', {
     div: {
       background: '$gray300',
       padding: '.5rem',
-      borderRadius: 8
-    }
+      borderRadius: 8,
+    },
   },
 
   variants: {
@@ -109,13 +109,13 @@ export const NavgationContent = styled('div', {
           top: 65,
           right: 12,
           background: '$black600',
-          zIndex: 1
-        }
-      }
-    }
+          zIndex: 1,
+        },
+      },
+    },
   },
 
   '@bp1': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 })

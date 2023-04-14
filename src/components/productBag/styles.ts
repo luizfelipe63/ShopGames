@@ -5,7 +5,7 @@ export const CardContainer = styled('div', {
   gap: '1.125rem',
   padding: '1rem',
   borderRadius: 8,
-  background: '$gray300'
+  background: '$gray300',
 })
 
 export const Card = styled('div', {
@@ -16,7 +16,7 @@ export const Card = styled('div', {
 
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
 })
 
 export const CardDescription = styled('div', {
@@ -26,7 +26,7 @@ export const CardDescription = styled('div', {
   gap: '.3rem',
 
   span: {
-    color: '$grayScale'
+    color: '$grayScale',
   },
 
   button: {
@@ -35,6 +35,6 @@ export const CardDescription = styled('div', {
     color: '$white',
     border: 0,
 
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 })

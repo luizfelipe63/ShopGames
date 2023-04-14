@@ -4,7 +4,7 @@ import { stripe } from '../../lib/stripe'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { products } = req.body as { products: ProductType[] }
 
@@ -21,26 +21,26 @@ export default async function handler(
   const cancel_url = `${process.env.NEXT_URL}/`
 
   const checkoutSession = await stripe.checkout.sessions.create({
-    success_url: success_url,
-    cancel_url: cancel_url,
+    success_url,
+    cancel_url,
     mode: 'payment',
     payment_method_types: ['card'],
     payment_intent_data: {},
-    line_items: products.map(product => ({
+    line_items: products.map((product) => ({
       price_data: {
         currency: 'BRL',
 
         product_data: {
           name: product.name,
-          images: [product.imageUrl]
+          images: [product.imageUrl],
         },
-        unit_amount: product.numberPrice * 100
+        unit_amount: product.numberPrice * 100,
       },
-      quantity: 1
-    }))
+      quantity: 1,
+    })),
   })
 
   return res.status(201).json({
-    checkoutUrl: checkoutSession.url
+    checkoutUrl: checkoutSession.url,
   })
 }

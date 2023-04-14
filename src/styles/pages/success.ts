@@ -10,7 +10,7 @@ export const SuccessContainer = styled('main', {
   transform: 'translate(-50%, -50%)',
 
   h2: {
-    marginTop: '1rem'
+    marginTop: '1rem',
   },
 
   p: {
@@ -19,7 +19,7 @@ export const SuccessContainer = styled('main', {
     maxWidth: 560,
     textAlign: 'center',
     marginTop: '2rem',
-    lineHeight: 1.4
+    lineHeight: 1.4,
   },
 
   a: {
@@ -32,13 +32,13 @@ export const SuccessContainer = styled('main', {
     transition: 'color 0.2s',
 
     '&:hover': {
-      color: '$Purple'
-    }
-  }
+      color: '$Purple',
+    },
+  },
 })
 
 export const ImageContainer = styled('div', {
-  display: 'flex'
+  display: 'flex',
 })
 
 export const ImageContent = styled('div', {
@@ -54,6 +54,6 @@ export const ImageContent = styled('div', {
 
   img: {
     objectFit: 'cover',
-    borderRadius: 8
-  }
+    borderRadius: 8,
+  },
 })

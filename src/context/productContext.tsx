@@ -1,19 +1,20 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from 'react'
 
 export interface ProductType {
-  id: number, 
-  name: string,
-  imageUrl: string,
-  price: string,
+  id: number
+  name: string
+  imageUrl: string
+  Price: number
+  realeased: string
   description: string
   numberPrice: number
 }
 
-interface ProductContextType{
+interface ProductContextType {
   newProductBag: ProductType[]
   QuantityItems: number
   ItemsValue: number
-  creatNewProductBag: (product: ProductType) => void 
+  creatNewProductBag: (product: ProductType) => void
   DeleteProductBag: (id: number) => void
 }
 
@@ -22,22 +23,18 @@ interface ProductContetexProviderProps {
 }
 export const ProductContext = createContext({} as ProductContextType)
 
-export function ProductContextProvider({ children }: ProductContetexProviderProps) {
-
+export function ProductContextProvider({
+  children,
+}: ProductContetexProviderProps) {
   const [newProductBag, setNewProductBag] = useState<ProductType[]>([])
- 
 
   const QuantityItems = newProductBag.length
 
-  
   const ItemsValue = newProductBag.reduce((total, product) => {
     return total + product.numberPrice
   }, 0)
 
-  
-
   function creatNewProductBag(games: ProductType) {
-
     const orderAlreadyExist = newProductBag.findIndex((productBag) => {
       return productBag.id === games.id
     })
@@ -67,16 +64,17 @@ export function ProductContextProvider({ children }: ProductContetexProviderProp
     setNewProductBag(ProductBagWhithoutDeleteOne)
   }
 
-  return(
-    <ProductContext.Provider value={{
-      newProductBag,
-      QuantityItems,
-      ItemsValue,
-      creatNewProductBag, 
-      DeleteProductBag
-      }}>
+  return (
+    <ProductContext.Provider
+      value={{
+        newProductBag,
+        QuantityItems,
+        ItemsValue,
+        creatNewProductBag,
+        DeleteProductBag,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   )
-
 }

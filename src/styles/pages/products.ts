@@ -7,16 +7,16 @@ export const ProductsContainer = styled('div', {
   padding: '2rem',
 
   h2: {
-    marginBottom: '1rem'
+    marginBottom: '1rem',
   },
 
   '@bp1': {
-    padding: '0 1rem'
-  }
+    padding: '0 1rem',
+  },
 })
 
 export const ImageProducts = styled('div', {
-  height: 400
+  height: 400,
 })
 
 export const GameContent = styled('div', {
@@ -25,8 +25,8 @@ export const GameContent = styled('div', {
   gap: '5rem',
 
   '@bp1': {
-    flexDirection: 'column'
-  }
+    flexDirection: 'column',
+  },
 })
 
 export const SwiperContainer = styled('div', {
@@ -40,8 +40,8 @@ export const SwiperContainer = styled('div', {
   display: 'block',
 
   '@bp1': {
-    zIndex: 0
-  }
+    zIndex: 0,
+  },
 })
 
 export const ProductsDetails = styled('div', {
@@ -51,21 +51,25 @@ export const ProductsDetails = styled('div', {
   gap: '1.5rem',
 
   h3: {
-    color: '$gray300'
+    color: '$gray300',
   },
 
   p: {
     fontSize: '$md',
-    lineHeight: 1.6
+    lineHeight: 1.6,
   },
 
   div: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '.75rem'
+    gap: '.75rem',
   },
 
   button: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
     marginTop: 'auto',
     backgroundColor: '$Purple',
     border: 0,
@@ -73,17 +77,25 @@ export const ProductsDetails = styled('div', {
     borderRadius: 8,
     padding: '1.25rem',
     cursor: 'pointer',
-    fontWeight: 'bold',
     fontSize: '$md',
 
     '&:disabled': {
       opacity: 0.6,
-      cursor: 'not-allowed'
-    }
-  }
+      cursor: 'not-allowed',
+    },
+
+    span: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '.5rem',
+      fontSize: '$normal',
+    },
+  },
 })
 
 export const About = styled('div', {
+  marginBottom: '1rem',
+
   button: {
     background: 'transparent',
     color: '$gray100',
@@ -95,9 +107,9 @@ export const About = styled('div', {
     transition: 'color .2s',
 
     '&:hover': {
-      color: '$Purple'
-    }
-  }
+      color: '$Purple',
+    },
+  },
 })
 
 export const AboutParagraph = styled('p', {
@@ -113,8 +125,8 @@ export const AboutParagraph = styled('p', {
       visible: {
         whiteSpace: 'break-spaces',
         textOverflow: 'ellipsis',
-        overflow: 'visible'
-      }
-    }
-  }
+        overflow: 'visible',
+      },
+    },
+  },
 })

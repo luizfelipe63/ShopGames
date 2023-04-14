@@ -9,20 +9,20 @@ export const SearchContainer = styled('div', {
   '@bp1': {
     paddingLeft: '1rem',
     paddingRight: '1rem',
-    paddingTop: '5rem'
-  }
+    paddingTop: '5rem',
+  },
 })
 
 export const FormSearch = styled('form', {
   div: {
-    position: 'relative'
+    position: 'relative',
   },
 
   svg: {
     position: 'absolute',
     top: '50%',
     left: '10px',
-    transform: 'translate(0, -50%)'
+    transform: 'translate(0, -50%)',
   },
 
   input: {
@@ -40,19 +40,19 @@ export const FormSearch = styled('form', {
       width: '400px',
 
       '@bp1': {
-        width: 200
-      }
+        width: 200,
+      },
     },
 
     '@bp1': {
-      width: 0
-    }
-  }
+      width: 0,
+    },
+  },
 })
 
 export const Buttons = styled('div', {
   display: 'flex',
-  gap: '1rem'
+  gap: '1rem',
 })
 
 export const CardButton = styled('div', {
@@ -80,8 +80,8 @@ export const CardButton = styled('div', {
     width: '1.25rem',
     height: '1.25rem',
     color: '$black800',
-    background: '$white'
-  }
+    background: '$white',
+  },
 })
 
 export const LoginButton = styled('button', {
@@ -91,5 +91,5 @@ export const LoginButton = styled('button', {
   borderRadius: 8,
   border: 0,
   padding: '.5rem',
-  position: 'relative'
+  position: 'relative',
 })

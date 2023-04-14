@@ -4,12 +4,12 @@ export const HomeContainer = styled('main', {
   padding: '2rem',
 
   h1: {
-    marginBottom: '2rem'
+    marginBottom: '2rem',
   },
 
   '@bp1': {
-    padding: '1rem'
-  }
+    padding: '1rem',
+  },
 })
 
 export const HeaderContent = styled('header', {
@@ -19,7 +19,7 @@ export const HeaderContent = styled('header', {
   listStyle: 'none',
   padding: 0,
   zIndex: '-99999',
-  display: 'block'
+  display: 'block',
 })
 
 export const LoadPresetation = styled('div', {
@@ -32,12 +32,12 @@ export const LoadPresetation = styled('div', {
 
   h3: {
     color: '$white',
-    fontSize: '$2xl'
+    fontSize: '$2xl',
   },
 
   '@bp1': {
-    padding: '1rem'
-  }
+    padding: '1rem',
+  },
 })
 
 export const HomeContent = styled('div', {
@@ -46,8 +46,8 @@ export const HomeContent = styled('div', {
   gap: '2rem',
 
   '@bp1': {
-    gridTemplateColumns: '1fr'
-  }
+    gridTemplateColumns: '1fr',
+  },
 })
 
 export const Products = styled('div', {
@@ -63,7 +63,7 @@ export const Products = styled('div', {
 
     a: {
       color: '$gray100',
-      textDecoration: 'none'
+      textDecoration: 'none',
     },
 
     h2: {
@@ -71,8 +71,8 @@ export const Products = styled('div', {
 
       '&:hover': {
         transition: 'opacity 0.2s',
-        opacity: 0.6
-      }
+        opacity: 0.6,
+      },
     },
 
     div: {
@@ -90,16 +90,16 @@ export const Products = styled('div', {
         transition: 'color 0.2s',
 
         '&:hover': {
-          color: '$Purple'
-        }
-      }
-    }
-  }
+          color: '$Purple',
+        },
+      },
+    },
+  },
 })
 
 export const BgImgProduct = styled('div', {
   borderRadius: '8px 8px 0px 0px',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  height: 150
+  height: 150,
 })
