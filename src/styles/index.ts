@@ -22,9 +22,7 @@ export const {
       grayScale: '#8D8D99',
 
       Purple: '#7209B7',
-
-      green500: '#00875f',
-      green300: '#00b37e',
+      Purple100: '#9A03FF',
     },
     fontSizes: {
       md: '1.125rem',
