@@ -16,13 +16,13 @@ export default async function handler(
     return res.status(400).json({ error: 'Price not found' })
   }
 
-  const success_url = `${process.env.NEXT_URL}/success?session_id={CHECKOUT_SESSION_ID}`
+  const successUrl = `${process.env.NEXT_URL}/success?session_id={CHECKOUT_SESSION_ID}`
 
-  const cancel_url = `${process.env.NEXT_URL}/`
+  const cancelUrl = `${process.env.NEXT_URL}/`
 
   const checkoutSession = await stripe.checkout.sessions.create({
-    success_url,
-    cancel_url,
+    success_url: successUrl,
+    cancel_url: cancelUrl,
     mode: 'payment',
     payment_method_types: ['card'],
     payment_intent_data: {},
