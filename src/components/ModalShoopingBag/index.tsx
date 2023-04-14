@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import axios from 'axios'
 import { X } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ProductContext } from '../../context/productContext'
 import { ProductBag } from '../productBag'
 import {
@@ -19,6 +19,8 @@ import {
 export function ShoopingBag() {
   const { newProductBag, QuantityItems, ItemsValue } =
     useContext(ProductContext)
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+    useState(false)
 
   const FormatPrice = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -27,6 +29,7 @@ export function ShoopingBag() {
 
   async function handleCheckout() {
     try {
+      setIsCreatingCheckoutSession(true)
       const response = await axios.post('/api/checkout', {
         products: newProductBag,
       })
@@ -34,6 +37,7 @@ export function ShoopingBag() {
 
       window.location.href = checkoutUrl
     } catch (err) {
+      setIsCreatingCheckoutSession(false)
       alert('Falha ao redirecionar ao checkout')
     }
   }
@@ -60,7 +64,10 @@ export function ShoopingBag() {
             <strong>Valor total</strong>
             <strong>{FormatPrice}</strong>
           </TotalValue>
-          <CheckoutButton onClick={handleCheckout}>
+          <CheckoutButton
+            disabled={isCreatingCheckoutSession}
+            onClick={handleCheckout}
+          >
             Finalizar compra
           </CheckoutButton>
         </ContentInfos>

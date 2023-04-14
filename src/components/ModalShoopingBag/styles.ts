@@ -80,9 +80,14 @@ export const CheckoutButton = styled('button', {
   width: '100%',
   padding: '1.25rem 2rem',
   cursor: 'pointer',
-  transition: 'opacity .2s',
+  transition: 'background .2s',
 
-  '&:hover': {
+  '&:disabled': {
     opacity: 0.6,
+    cursor: 'not-allowed',
+  },
+
+  '&:not(:disabled):hover': {
+    background: '$Purple100',
   },
 })
