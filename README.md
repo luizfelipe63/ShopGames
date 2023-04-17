@@ -246,6 +246,50 @@
   </tr>
 </table>
     
+<br>    
+    
+## :round_pushpin: Clonando o Projeto
+
+Para clonar e executar este projeto em seu computador, você precisará do [Git](https://git-scm.com/) e [Node.js v18.12.1](https://nodejs.org/en/) ou superior previamente instalados.<br>
+    
+Feito isso, no terminal:
+
+```bash
+# Clone esse repositório com:
+> git clone https://github.com/luizfelipe63/ShopGames
+# Entre no repositório com:
+> cd ShopGames
+```
+
+Estando agora na raiz do projeto, crie o arquivo `.env.local`, que deve conter as seguintes variáveis de ambiente:
+
+```bash
+NEXT_URLL=http://localhost:3000
+
+STRIPE_PUBLIC_KEY=
+STRIPE_PUBLIC_KEY=
+
+RAWG_KEY=
+    
+```
+
+Para configurar tais variáveis, você precisará criar um projeto no [Stripe](https://stripe.com/en-br/) e uma conta na [Rawg](https://rawg.io/), 
+    
+Feito isso:
+
+```bash
+# Instale as dependências com:
+> npm install
+> cd ShopGames
+> npm install
+# Execute o projeto com:
+> npm run dev
+> cd ..
+> npm run dev
+# Feito isso, você já poderá estar acessando o projeto em: http://localhost:3000
+```    
+<br>    
+    
 ## :punch: Colaboradores
 
 <table>
