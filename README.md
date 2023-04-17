@@ -1,8 +1,34 @@
-# :video_game: ShopGames
+<h1 align="center">Luiz Felipe - ShopGames :video_game: </h1>
 
 <br>
 
 ## :rocket: Tecnologias utilizadas
+
+<div>
+  <a href="https://nextjs.org/">
+    <img align="center" alt="luiz-nextjs" height="50" width="50" src="https://skillicons.dev/icons?i=nextjs">
+  <a/>  
+  &nbsp;
+  <a href="https://www.typescriptlang.org/">
+    <img align="center" alt="luiz-typescript" height="50" width="50" src="https://skillicons.dev/icons?i=typescript">
+  <a/>  
+  &nbsp;  
+  <a href="https://react.dev/">
+    <img align="center" alt="luiz-typescript" height="50" width="50" src="https://skillicons.dev/icons?i=react">
+  <a/>
+   &nbsp; 
+  <a href="https://stitches.dev/">
+    <img align="center" alt="luiz-figma" height="50" width="50" src="https://xesque.rocketseat.dev/platform/tech/1663679889933.svg">
+  </a>
+  &nbsp;  
+  <a href="https://www.figma.com/">
+    <img align="center" alt="luiz-figma" height="50" width="50" src="https://skillicons.dev/icons?i=figma">
+  </a>
+  &nbsp;  
+  <a href="https://stripe.com/br"> 
+    <img align="center" src="https://user-images.githubusercontent.com/86276393/212921259-b6b0f80e-d9ed-4b0e-b17a-34733b507cec.png" height="50" width="50" alt="Stripe icon"/>
+  </a>  
+</div>
 
 <br>
 
@@ -219,39 +245,18 @@
     </td>
   </tr>
 </table>
+    
+## :punch: Colaboradores
 
-
-- [x] Criar projeto com NextJS
-- [x] Criar rotas da aplicação
-- [x] Configurar documento HTML
-- [x] Configurar Stitches
-- [x] Estilos Globais
-- [x] Cabeçalho da aplicação
-- [] Estrutura da Home
-- [x] Configurando conta no Stripe
-- [x] Integração com Stripe
-- [] Criar produto no Stripe(Produtos da aplicação)
-- [] Estrututa da página de produto(Detalhes)
-- [x] Carregando dados do produto
-- [x] Utilazar SSG na Home e Product
-- [x] Estruuta do modal de sacola de compras
-- [x] Dados na sacola de compras
-- [] Checkout no Stripe
-- [] Estrututa da página de sucesso
-- [] Dados da compra no sucesso
-- [] Reponsividade
-- [] Funcinalidade de pesquisa
-- [] Login de usúario
-- [] Filtro dos jogos
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/luiz-feliperocha/">
+        <img src="https://avatars.githubusercontent.com/u/75274860?s=400&u=9e5dc5aad655b35597774819531e14d9bd653775&v=4" width="160px;" alt="Foto do luiz felipe"/><br>
+        <sub>
+          <b>Luiz Felipe</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
