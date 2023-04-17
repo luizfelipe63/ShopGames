@@ -78,24 +78,6 @@ export const NavgationContent = styled('div', {
     },
   },
 
-  button: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-    background: 'transparent',
-    color: '$white',
-    fontSize: '$normal',
-    border: 0,
-
-    cursor: 'pointer',
-
-    div: {
-      background: '$gray300',
-      padding: '.5rem',
-      borderRadius: 8,
-    },
-  },
-
   variants: {
     Responsive: {
       mobile: {
@@ -117,5 +99,29 @@ export const NavgationContent = styled('div', {
 
   '@bp1': {
     display: 'none',
+  },
+})
+
+export const Genres = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+
+  button: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    background: 'transparent',
+    color: '$white',
+    fontSize: '$normal',
+    border: 0,
+
+    cursor: 'pointer',
+
+    div: {
+      background: '$gray300',
+      padding: '.5rem',
+      borderRadius: 8,
+    },
   },
 })
