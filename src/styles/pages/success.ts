@@ -9,6 +9,12 @@ export const SuccessContainer = styled('main', {
   left: '50%',
   transform: 'translate(-50%, -50%)',
 
+  '@bp1': {
+    h2: {
+      textAlign: 'center',
+    },
+  },
+
   h2: {
     marginTop: '1rem',
   },
@@ -16,7 +22,7 @@ export const SuccessContainer = styled('main', {
   p: {
     fontSize: '$md',
     color: '$gray100',
-    maxWidth: 560,
+    maxWidth: 580,
     textAlign: 'center',
     marginTop: '2rem',
     lineHeight: 1.4,
@@ -39,6 +45,10 @@ export const SuccessContainer = styled('main', {
 
 export const ImageContainer = styled('div', {
   display: 'flex',
+
+  'div + div': {
+    marginLeft: 'calc(-140px / 2)',
+  },
 })
 
 export const ImageContent = styled('div', {
@@ -52,8 +62,8 @@ export const ImageContent = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
 
-  img: {
-    objectFit: 'cover',
-    borderRadius: 8,
+  '@bp1': {
+    width: 100,
+    height: 100,
   },
 })
