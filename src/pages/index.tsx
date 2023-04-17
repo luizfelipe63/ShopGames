@@ -73,7 +73,7 @@ export default function Home({ games }: HomeProps) {
           {games.map((item) => {
             return (
               <Products key={item.id}>
-                <Link href={`/games/${item.id}`} prefetch={false}>
+                <Link href={`/products/${item.id}`} prefetch={false}>
                   <BgImgProduct
                     css={{
                       backgroundImg: item.imageUrl,
@@ -112,11 +112,11 @@ export default function Home({ games }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const key = process.env.RAWG_KEY
 
-  const response = await RawgAPI.get(`games?key=${key}`)
+  const [gameResponse] = await Promise.all([RawgAPI.get(`games?key=${key}`)])
 
-  const reponseResults = response.data.results
+  const gameReponseResults = gameResponse.data.results
 
-  const games = reponseResults.map((game) => {
+  const games = gameReponseResults.map((game) => {
     return {
       id: game.id,
       imageUrl: game.background_image,
