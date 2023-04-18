@@ -1,5 +1,11 @@
 <h1 align="center">Luiz Felipe - ShopGames :video_game: </h1>
 
+<div align="center">
+  <video src="https://user-images.githubusercontent.com/75274860/232853731-ed1e0951-2cda-43e9-8c82-092e8093671b.mp4"/>
+</div>
+
+> Acesse o projeto online [AQUI](https://shop-games.vercel.app/)
+
 <br>
 
 ## :rocket: Tecnologias utilizadas
